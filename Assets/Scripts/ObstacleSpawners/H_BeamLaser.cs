@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class V_BeamLaser : MonoBehaviour
+public class H_BeamLaser : MonoBehaviour
 {
     LevelsManager level_;
     R_Easings easings_;
@@ -12,8 +12,8 @@ public class V_BeamLaser : MonoBehaviour
 
     public float width = 1;
     public float height = 1;
-    public float minRandX = 0;
-    public float maxRandX = 0;
+    public float minRandY = 0;
+    public float maxRandY = 0;
     public float livingTime = 0;
     public float warningTime = 0;
 
@@ -28,10 +28,10 @@ public class V_BeamLaser : MonoBehaviour
         level_ = GetComponent<LevelsManager>();
         easings_ = GetComponent<R_Easings>();
 
-        float Xpos = Random.Range(minRandX, maxRandX);
-        
-        obstacleWarning.transform.position = new Vector3(Xpos, 0, 0);
-        obstacle.transform.position = new Vector3(Xpos, 0, 0);
+        float Ypos = Random.Range(minRandY, maxRandY);
+
+        obstacleWarning.transform.position = new Vector3(0, Ypos, 0);
+        obstacle.transform.position = new Vector3(0, Ypos, 0);
 
         obstacleWarning.transform.localScale = new Vector3(0, height, 0);
         obstacle.transform.localScale = new Vector3(0, height, 0);
