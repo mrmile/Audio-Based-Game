@@ -16,6 +16,7 @@ public class HR_HeavyLaser : MonoBehaviour
     public float maxRandY = 0;
     public float livingTime = 0;
     public float warningTime = 0;
+    public bool allowShake = true;
 
     private float startTime = 0;
     private float obstacleTime = 0;
@@ -62,7 +63,10 @@ public class HR_HeavyLaser : MonoBehaviour
         else if (step == 1)
         {
             //obstacleWarning.transform.localScale = new Vector3(0, 20, 0);
-            level_.CameraDirectionalShake(new Vector2(0.1f, 0.0f), 0.1f, 1.0f);
+            if (allowShake == true)
+            {
+                level_.CameraDirectionalShake(new Vector2(0.1f, 0.0f), 0.1f, 1.0f);
+            }
             step++;
             startTime = Time.time;
             obstacleTime = Time.time - startTime;
