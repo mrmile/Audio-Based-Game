@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+   
+
+
     [SerializeField] Rigidbody2D rb;
     [SerializeField] float speedRef;
     [SerializeField] float rotTime;
@@ -16,12 +19,19 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] Vector2 movement;
     Vector2 lastMovement;
-    Transform spr;
 
     float myFloat;
 
+    
+
 
     [SerializeField] Queue<bool> dashInputBuffer = new Queue<bool>();
+
+
+    //sprite
+    Transform spr;
+    Animator sprAnimator;
+    [SerializeField] string currentAnimation = "PlayerStop";
     void DequeueInputDash()
     {
         if (dashInputBuffer.Count > 0)
@@ -33,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         spr = transform.GetChild(0);
+        sprAnimator = spr.GetComponent<Animator>();
         speed = speedRef;
         rb = GetComponent<Rigidbody2D>();
     }
@@ -59,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+
         if (dashInputBuffer.Count > 0 && dashInputBuffer.Peek() == true && !dashing)
         {
             dashing = true;
@@ -83,6 +95,26 @@ public class PlayerMovement : MonoBehaviour
 
         spr.rotation = Quaternion.Euler(0, 0, smoothAngle);
 
+        //sprite animation
+
+        if (movement != Vector2.zero)
+        {
+            if (currentAnimation != "PlayerMove")
+            {
+                sprAnimator.Play("PlayerMove");
+                currentAnimation = "PlayerMove";
+
+            }
+        }
+        else
+        {
+            if (currentAnimation != "PlayerStop")
+            {
+                sprAnimator.Play("PlayerStop");
+                currentAnimation = "PlayerStop";
+
+            }
+        }
 
 
         //timers
