@@ -25,6 +25,7 @@ public class Bomb : MonoBehaviour
 
     private int randRotationIndex = 0;
     private float resultRotationZ = 0;
+    private Color currentLevelBgColor;
 
     // Start is called before the first frame update
     void Start()
@@ -38,14 +39,16 @@ public class Bomb : MonoBehaviour
         randRotationIndex = Random.Range(0, 1);
         if (randRotationIndex == 0)
         {
-            resultRotationZ = Random.Range(45, 180);
+            resultRotationZ = Random.Range(180, 360);
         }
         else if (randRotationIndex == 1)
         {
-            resultRotationZ = Random.Range(-45, -180);
+            resultRotationZ = Random.Range(-180, -360);
         }
 
         bombAfterSquare.transform.localScale = new Vector3(0, 0, 0);
+
+        currentLevelBgColor = level_.levelBackgroundColor;
 
         startTime = Time.time;
     }
@@ -55,12 +58,12 @@ public class Bomb : MonoBehaviour
     {
         obstacleTime = Time.time - startTime;
 
-        if (step == 0 && bombParent.transform.position.x != endPose.x)
+        if (step == 0 && obstacleTime < 0.5f)
         {
-            bombParent.transform.position = new Vector3(easings_.EaseSineOut(obstacleTime, initPos.x, endPose.x - initPos.x, 1.2f),
-                                                        easings_.EaseSineOut(obstacleTime, initPos.y, endPose.y - initPos.y, 1.2f), 0);
+            bombParent.transform.position = new Vector3(easings_.EaseSineOut(obstacleTime, initPos.x, endPose.x - initPos.x, 0.5f),
+                                                        easings_.EaseSineOut(obstacleTime, initPos.y, endPose.y - initPos.y, 0.5f), 0);
 
-            bombParent.transform.eulerAngles = new Vector3(0, 0, easings_.EaseSineOut(obstacleTime, 0, resultRotationZ - 0, 1.2f));
+            bombParent.transform.eulerAngles = new Vector3(0, 0, easings_.EaseSineOut(obstacleTime, 0, resultRotationZ - 0, 0.5f));
         }
         else if(step == 0)
         {
@@ -69,7 +72,7 @@ public class Bomb : MonoBehaviour
             obstacleTime = Time.time - startTime;
         }
 
-        if (step == 1)
+        if (step == 1 && obstacleTime > 0.5f)
         {
             //spawn bomb bullets
             for (int i = 0; i < bombBullets.transform.childCount; i++)
@@ -77,35 +80,55 @@ public class Bomb : MonoBehaviour
                 bombBullets.transform.GetChild(i).gameObject.SetActive(true);
             }
 
+            bombSquare.transform.localScale = new Vector3(0, 0, 0);
+
+            level_.levelBackgroundColor = new Color(150,150,150,255);
+            Invoke("restablishBgColorFromFlashback", 0.025f);
+
             step++;
             startTime = Time.time;
             obstacleTime = Time.time - startTime;
         }
 
-        if (step == 2 && bombAfterSquare.transform.localScale.x < 1.5f)
+        if (step == 2 && obstacleTime < 0.25f)
         {
-            bombAfterSquare.transform.localScale = new Vector3(easings_.EaseBackOut(obstacleTime, 0, 1.5f - 0, 1.2f),
-                                                               easings_.EaseBackOut(obstacleTime, 0, 1.5f - 0, 1.2f),
-                                                               easings_.EaseBackOut(obstacleTime, 0, 1.5f - 0, 1.2f));
+            bombAfterSquare.transform.localScale = new Vector3(easings_.EaseBackOut(obstacleTime, 0, 1.5f - 0, 0.25f),
+                                                               easings_.EaseBackOut(obstacleTime, 0, 1.5f - 0, 0.25f),
+                                                               easings_.EaseBackOut(obstacleTime, 0, 1.5f - 0, 0.25f));
+        }
+        else if (step == 2 && obstacleTime > 0.5f)
+        {
+            step++;
+            startTime = Time.time;
+            obstacleTime = Time.time - startTime;
+        }
+
+        if (step == 3 && obstacleTime < 0.25f)
+        {
+            bombAfterSquare.transform.localScale = new Vector3(easings_.EaseExpoIn(obstacleTime, 1.5f, 0 - 1.5f, 0.25f),
+                                                               easings_.EaseExpoIn(obstacleTime, 1.5f, 0 - 1.5f, 0.25f),
+                                                               easings_.EaseExpoIn(obstacleTime, 1.5f, 0 - 1.5f, 0.25f));
         }
         else if (step == 3)
         {
             step++;
             startTime = Time.time;
             obstacleTime = Time.time - startTime;
-        }
 
-        if (step == 3 && bombAfterSquare.transform.localScale.x > 0.0f)
-        {
-            bombAfterSquare.transform.localScale = new Vector3(easings_.EaseBackIn(obstacleTime, 1.5f, 0 - 1.5f, 1.2f),
-                                                               easings_.EaseBackIn(obstacleTime, 1.5f, 0 - 1.5f, 1.2f),
-                                                               easings_.EaseBackIn(obstacleTime, 1.5f, 0 - 1.5f, 1.2f));
+            Destroy(bombSquare);
+            Destroy(bombAfterSquare);
+
+            Invoke("destroyBombParent", 5.0f);
         }
-        else if (step == 3)
-        {
-            step++;
-            startTime = Time.time;
-            obstacleTime = Time.time - startTime;
-        }
+    }
+
+    void destroyBombParent()
+    {
+        Destroy(bombParent);
+    }
+
+    void restablishBgColorFromFlashback()
+    {
+        level_.levelBackgroundColor = currentLevelBgColor;
     }
 }

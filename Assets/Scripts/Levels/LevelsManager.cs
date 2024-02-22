@@ -7,8 +7,8 @@ public class LevelsManager : MonoBehaviour
 {
     R_Easings easings_;
 
-    public Color levelObstaclesColor;
-    public Color levelBackgroundColor;
+    public Color levelObstaclesColor = Color.white;
+    public Color levelBackgroundColor = Color.white;
 
     public Camera camera;
 
