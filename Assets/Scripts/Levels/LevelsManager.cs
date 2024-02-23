@@ -11,6 +11,7 @@ public class LevelsManager : MonoBehaviour
     public Color levelBackgroundColor = Color.white;
 
     public Camera camera;
+    private Vector3 originalCameraPosition;
 
     public float levelTime = 0;
     float startTime = 0;
@@ -35,6 +36,33 @@ public class LevelsManager : MonoBehaviour
         //StartCoroutine(EaseShake(directionVector, shakeDuration, shakeIntensity));
         StartCoroutine(Shake(directionVector, shakeDuration, shakeIntensity));
 
+    }
+
+    public void ShakeCamera(float duration, float intensity)
+    {
+        StartCoroutine(Shake(duration, intensity));
+    }
+
+    IEnumerator Shake(float duration, float intensity)
+    {
+        originalCameraPosition = camera.transform.position;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            // Calculate a random offset within the specified intensity
+            Vector3 offset = new Vector3(Random.Range(-1f, 1f) * intensity, Random.Range(-1f, 1f) * intensity, 0f);
+
+            // Apply the offset to the camera's position
+            camera.transform.position = originalCameraPosition + offset;
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the final position is exactly the original position
+        camera.transform.position = originalCameraPosition;
     }
 
     IEnumerator Shake(Vector2 directionVector, float shakeDuration, float shakeIntensity)
