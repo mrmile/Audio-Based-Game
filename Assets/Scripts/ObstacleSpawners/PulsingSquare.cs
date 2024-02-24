@@ -19,6 +19,9 @@ public class PulsingSquare : MonoBehaviour
     public float warningTime = 0;
     public float shakeIntensity = 0;
 
+    public string dontDestroyAtEndIfParentNameIs = "_null_";
+    private bool dontDestroyAtEnd = false; //turn it only true if used in a snake
+
     private float startTime = 0;
     private float obstacleTime = 0;
 
@@ -32,6 +35,17 @@ public class PulsingSquare : MonoBehaviour
 
         obstacleWarning.transform.localScale = new Vector3(0, 0, 0);
         obstacle.transform.localScale = new Vector3(0, 0, 0);
+
+        obstacle.transform.localPosition = new Vector3(Random.Range(minPosXY.x, maxPosXY.x), Random.Range(minPosXY.y, maxPosXY.y), 0);
+        obstacleWarning.transform.localPosition = new Vector3(Random.Range(minPosXY.x, maxPosXY.x), Random.Range(minPosXY.y, maxPosXY.y), 0);
+
+        if (gameObject.transform.parent != null)
+        {
+            if (gameObject.transform.parent.name == dontDestroyAtEndIfParentNameIs)
+            {
+                dontDestroyAtEnd = true;
+            }
+        }
 
         startTime = Time.time;
     }
@@ -95,11 +109,15 @@ public class PulsingSquare : MonoBehaviour
             obstacleTime = Time.time - startTime;
         }
 
-        if (step == 4)
+        if (step == 4 && dontDestroyAtEnd == false)
         {
             Destroy(obstacleWarning);
             Destroy(obstacle);
             Destroy(gameObject);
+        }
+        else if (step == 4 && dontDestroyAtEnd == true)
+        {
+            gameObject.transform.position = new Vector3(99999, 99999, 99999);
         }
     }
 }
