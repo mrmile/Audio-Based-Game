@@ -2062,7 +2062,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2554624079465685248, guid: 271aa86eddae66c49b857cd2bb80ddf6, type: 3}
       propertyPath: m_Name
-      value: SquareSnake
+      value: DirectionalSnake
       objectReference: {fileID: 0}
     - target: {fileID: 2554624079465685250, guid: 271aa86eddae66c49b857cd2bb80ddf6, type: 3}
       propertyPath: levelGameObject
@@ -2070,11 +2070,11 @@ PrefabInstance:
       objectReference: {fileID: 1185081375}
     - target: {fileID: 2554624079465685250, guid: 271aa86eddae66c49b857cd2bb80ddf6, type: 3}
       propertyPath: maxRotatedDirectionTendency
-      value: 25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2554624079465685250, guid: 271aa86eddae66c49b857cd2bb80ddf6, type: 3}
       propertyPath: minRotatedDirectionTendency
-      value: -25
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2554624079465685250, guid: 271aa86eddae66c49b857cd2bb80ddf6, type: 3}
       propertyPath: manualDirectionSet.Array.size
@@ -2094,7 +2094,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2554624079465685250, guid: 271aa86eddae66c49b857cd2bb80ddf6, type: 3}
       propertyPath: manualDirectionSet.Array.data[1].snakePieceIndex
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2554624079465685251, guid: 271aa86eddae66c49b857cd2bb80ddf6, type: 3}
       propertyPath: m_RootOrder

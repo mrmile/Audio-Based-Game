@@ -9,7 +9,7 @@ public struct CustomDirection
     public float newDirection;
 }
 
-public class SquareSnake : MonoBehaviour
+public class DirectionalSnake : MonoBehaviour
 {
     LevelsManager level_;
     R_Easings easings_;

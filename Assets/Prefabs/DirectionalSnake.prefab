@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2554624079465685253}
   - component: {fileID: 2554624079465685250}
   m_Layer: 0
-  m_Name: SquareSnake
+  m_Name: DirectionalSnake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,7 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7701175146703323495, guid: a476c4a973e3d6149b0fefeabd87f73e, type: 3}
       propertyPath: dontDestroyAtEndIfParentNameIs
-      value: SquareSnake
+      value: DirectionalSnake
       objectReference: {fileID: 0}
     - target: {fileID: 7701175146703323512, guid: a476c4a973e3d6149b0fefeabd87f73e, type: 3}
       propertyPath: m_Name
