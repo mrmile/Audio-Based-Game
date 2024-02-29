@@ -27,11 +27,19 @@ public class PulsingSquare : MonoBehaviour
 
     private int step = 0;
 
+    //private SpriteRenderer warningSprite;
+    //private SpriteRenderer obstacleSprite;
+
     // Start is called before the first frame update
     void Start()
     {
         level_ = GetComponentInParent<LevelsManager>();
         easings_ = GetComponent<R_Easings>();
+
+        //warningSprite = GetComponentInChildren<SpriteRenderer>();
+        //obstacleSprite = GetComponentInChildren<SpriteRenderer>();
+        //warningSprite.color = Color.blue;
+        //obstacleSprite.color = Color.blue;
 
         obstacleWarning.transform.localScale = new Vector3(0, 0, 0);
         obstacle.transform.localScale = new Vector3(0, 0, 0);
