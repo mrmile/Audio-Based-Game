@@ -9,6 +9,8 @@ public enum laserType
     H_BEAM,
     VU_HEAVY,
     VD_HEAVY,
+    VU_STUMPING,
+    VD_STUMPING,
     HL_HEAVY,
     HR_HEAVY,
     HL_STUMPING,
@@ -31,6 +33,8 @@ public class Spawn_Manager : MonoBehaviour
     [SerializeField] GameObject vdHeavylaser;
     [SerializeField] GameObject hlHeavylaser;
     [SerializeField] GameObject hrHeavylaser;
+    [SerializeField] GameObject vuStumpinglaser;
+    [SerializeField] GameObject vdStumpinglaser;
     [SerializeField] GameObject hlStumpinglaser;
     [SerializeField] GameObject hrStumpinglaser;
 
@@ -78,6 +82,12 @@ public class Spawn_Manager : MonoBehaviour
                 break;
             case laserType.HR_HEAVY:
                 SpawnObstacle(hrHeavylaser, spawnLocation01);
+                break;
+            case laserType.VU_STUMPING:
+                SpawnObstacle(vuStumpinglaser, spawnLocation01);
+                break;
+            case laserType.VD_STUMPING:
+                SpawnObstacle(vdStumpinglaser, spawnLocation01);
                 break;
             case laserType.HL_STUMPING:
                 SpawnObstacle(hlStumpinglaser, spawnLocation01);
