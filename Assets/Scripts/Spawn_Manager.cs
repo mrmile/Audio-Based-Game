@@ -100,6 +100,7 @@ public class Spawn_Manager : MonoBehaviour
 
         }
     }
+
     public void SpawnBombRequest()
     {
         SpawnObstacle(simpleBomb, spawnLocation01);
