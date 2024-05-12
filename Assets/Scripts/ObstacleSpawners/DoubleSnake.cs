@@ -33,8 +33,8 @@ public class DoubleSnake : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        level_ = GetComponentInParent<LevelsManager>();
-        easings_ = GetComponent<R_Easings>();
+        level_ = FindObjectOfType<LevelsManager>();
+        easings_ = FindObjectOfType<R_Easings>();
 
         gameObjectForSnaking.transform.position = new Vector3(Random.Range(minStartPos.x, maxStartPos.x), Random.Range(minStartPos.y, maxStartPos.y), 0);
         gameObject.transform.position = new Vector3(Random.Range(minStartPos.x, maxStartPos.x), Random.Range(minStartPos.y, maxStartPos.y), 0);

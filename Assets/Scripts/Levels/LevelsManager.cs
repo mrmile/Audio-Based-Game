@@ -19,7 +19,7 @@ public class LevelsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        easings_ = GetComponent<R_Easings>();
+        easings_ = FindObjectOfType<R_Easings>();
         startTime = Time.time;
     }
 

@@ -26,8 +26,8 @@ public class HR_HeavyLaser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        level_ = GetComponentInParent<LevelsManager>();
-        easings_ = GetComponent<R_Easings>();
+        level_ = FindObjectOfType<LevelsManager>();
+        easings_ = FindObjectOfType<R_Easings>();
 
         float Ypos = Random.Range(minRandY, maxRandY);
 

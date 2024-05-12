@@ -25,8 +25,8 @@ public class H_BeamLaser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        level_ = GetComponent<LevelsManager>();
-        easings_ = GetComponent<R_Easings>();
+        level_ = FindObjectOfType<LevelsManager>();
+        easings_ = FindObjectOfType<R_Easings>();
 
         float Ypos = Random.Range(minRandY, maxRandY);
 

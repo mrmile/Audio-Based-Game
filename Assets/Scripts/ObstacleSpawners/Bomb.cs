@@ -30,8 +30,8 @@ public class Bomb : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        level_ = GetComponentInParent<LevelsManager>();
-        easings_ = GetComponent<R_Easings>();
+        level_ = FindObjectOfType<LevelsManager>();
+        easings_ = FindObjectOfType<R_Easings>();
 
         endPose.x = Random.Range(finalMinPos.x, finalMaxPos.x);
         endPose.y = Random.Range(finalMinPos.y, finalMaxPos.y);

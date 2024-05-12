@@ -9,7 +9,7 @@ public class Level1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        level_ = GetComponent<LevelsManager>();
+        level_ = FindObjectOfType<LevelsManager>();
     }
 
     // Update is called once per frame
