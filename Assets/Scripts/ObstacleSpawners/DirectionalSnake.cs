@@ -32,6 +32,8 @@ public class DirectionalSnake : MonoBehaviour
 
     public CustomDirection[] manualDirectionSet;
 
+    public bool isPartOfBomb = false;
+
     private float startTime = 0;
     private float obstacleTime = 0;
     private float obstacleSpawnTime = 0;
@@ -46,8 +48,17 @@ public class DirectionalSnake : MonoBehaviour
         level_ = FindObjectOfType<LevelsManager>();
         easings_ = FindObjectOfType<R_Easings>();
 
-        gameObjectForSnaking.transform.position = new Vector3(Random.Range(minStartPos.x, maxStartPos.x), Random.Range(minStartPos.y, maxStartPos.y), 0);
-        gameObject.transform.position = new Vector3(Random.Range(minStartPos.x, maxStartPos.x), Random.Range(minStartPos.y, maxStartPos.y), 0);
+        if(isPartOfBomb == false)
+        {
+            gameObjectForSnaking.transform.position = new Vector3(Random.Range(minStartPos.x, maxStartPos.x), Random.Range(minStartPos.y, maxStartPos.y), 0);
+            gameObject.transform.position = new Vector3(Random.Range(minStartPos.x, maxStartPos.x), Random.Range(minStartPos.y, maxStartPos.y), 0);
+        }
+        else if (isPartOfBomb == true)
+        {
+            gameObjectForSnaking.transform.localPosition = new Vector3(Random.Range(minStartPos.x, maxStartPos.x), Random.Range(minStartPos.y, maxStartPos.y), 0);
+            gameObject.transform.localPosition = new Vector3(Random.Range(minStartPos.x, maxStartPos.x), Random.Range(minStartPos.y, maxStartPos.y), 0);
+        }
+
         gameObject.transform.eulerAngles = new Vector3(0, 0, startingRotation);
 
         rotatedDirectionTendency = Random.Range(minRotatedDirectionTendency, maxRotatedDirectionTendency);

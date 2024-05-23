@@ -15,7 +15,10 @@ public class Bomb : MonoBehaviour
     public GameObject bombParent;
     public GameObject bombSquare;
     public GameObject bombAfterSquare;
-    public GameObject bombBullets;
+    public GameObject childBullets;
+
+    public bool throwBullets = true;
+    public bool throwSquareSnakes = false;
 
     private float startTime = 0;
     private float obstacleTime = 0;
@@ -74,10 +77,21 @@ public class Bomb : MonoBehaviour
 
         if (step == 1 && obstacleTime > 0.5f)
         {
-            //spawn bomb bullets
-            for (int i = 0; i < bombBullets.transform.childCount; i++)
+            if(throwBullets == true)
             {
-                bombBullets.transform.GetChild(i).gameObject.SetActive(true);
+                //spawn bomb bullets
+                for (int i = 0; i < childBullets.transform.childCount; i++)
+                {
+                    childBullets.transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
+            else if (throwSquareSnakes == true)
+            {
+                //spawn square snakes
+                for (int i = 0; i < childBullets.transform.childCount; i++)
+                {
+                    childBullets.transform.GetChild(i).gameObject.SetActive(true);
+                }
             }
 
             bombSquare.transform.localScale = new Vector3(0, 0, 0);
