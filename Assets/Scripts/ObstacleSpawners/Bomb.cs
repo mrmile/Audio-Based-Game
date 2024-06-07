@@ -30,6 +30,8 @@ public class Bomb : MonoBehaviour
     private float resultRotationZ = 0;
     private Color currentLevelBgColor;
 
+    private SpriteRenderer[] objectsChildren;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,25 @@ public class Bomb : MonoBehaviour
         currentLevelBgColor = level_.levelBackgroundColor;
 
         startTime = Time.time;
+
+        //-----Color Setup-------------------------------------------------------
+        objectsChildren = GetComponentsInChildren<SpriteRenderer>(); ;
+
+        float alpha = 255;
+        for (int i = 0; i < objectsChildren.Length; i++)
+        {
+
+            if (objectsChildren[i].gameObject.tag != "Obstacle")
+            {
+                alpha = 0.3f;
+            }
+            else if (objectsChildren[i].gameObject.tag == "Obstacle")
+            {
+                alpha = 1.0f;
+            }
+            objectsChildren[i].color = new Color(level_.levelObstaclesColor.r, level_.levelObstaclesColor.g, level_.levelObstaclesColor.b, alpha);
+        }
+        //-----------------------------------------------------------------------
     }
 
     // Update is called once per frame

@@ -42,6 +42,8 @@ public class DirectionalSnake : MonoBehaviour
     private int step = 0;
     private int currentPieceIndex = 0;
 
+    private SpriteRenderer[] objectsChildren;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +69,25 @@ public class DirectionalSnake : MonoBehaviour
 
         startTime = Time.time;
         startSpawnTime = Time.time;
+
+        //-----Color Setup-------------------------------------------------------
+        objectsChildren = GetComponentsInChildren<SpriteRenderer>(); ;
+
+        float alpha = 255;
+        for (int i = 0; i < objectsChildren.Length; i++)
+        {
+
+            if (objectsChildren[i].gameObject.tag != "Obstacle")
+            {
+                alpha = 0.3f;
+            }
+            else if (objectsChildren[i].gameObject.tag == "Obstacle")
+            {
+                alpha = 1.0f;
+            }
+            objectsChildren[i].color = new Color(level_.levelObstaclesColor.r, level_.levelObstaclesColor.g, level_.levelObstaclesColor.b, alpha);
+        }
+        //-----------------------------------------------------------------------
     }
 
     // Update is called once per frame
