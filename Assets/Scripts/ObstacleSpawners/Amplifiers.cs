@@ -1,7 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+
+[System.Serializable]
+public struct CustomScale
+{
+    public float timeIndex;
+    public Vector2 newScale;
+}
 
 public class Amplifiers : MonoBehaviour
 {
@@ -21,10 +29,13 @@ public class Amplifiers : MonoBehaviour
     public float warningTime = 0;
     public bool hasNoWarning = true;
 
+    public CustomScale[] manualScaleSet;
+
     private float startTime = 0;
     private float obstacleTime = 0;
 
     private int step = 0;
+    private int index = 0;
 
     private SpriteRenderer[] objectsChildren;
 
@@ -37,8 +48,8 @@ public class Amplifiers : MonoBehaviour
         obstacleWarning.transform.localScale = new Vector3(0, 0, 0);
         obstacle.transform.localScale = new Vector3(0, 0, 0);
 
-        obstacle.transform.localPosition = new Vector3(Random.Range(minPosXY.x, maxPosXY.x), Random.Range(minPosXY.y, maxPosXY.y), 0);
-        obstacleWarning.transform.localPosition = new Vector3(Random.Range(minPosXY.x, maxPosXY.x), Random.Range(minPosXY.y, maxPosXY.y), 0);
+        obstacle.transform.localPosition = new Vector3(UnityEngine.Random.Range(minPosXY.x, maxPosXY.x), UnityEngine.Random.Range(minPosXY.y, maxPosXY.y), 0);
+        obstacleWarning.transform.localPosition = new Vector3(UnityEngine.Random.Range(minPosXY.x, maxPosXY.x), UnityEngine.Random.Range(minPosXY.y, maxPosXY.y), 0);
 
         startTime = Time.time;
 
@@ -72,42 +83,84 @@ public class Amplifiers : MonoBehaviour
             gameObject.transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
         }
 
-        if(step == 0 && hasNoWarning == true)
+        if(manualScaleSet.Length == 0)
         {
-            step = 2;
-            startTime = Time.time;
-            obstacleTime = Time.time - startTime;
-        }
+            if (step == 0 && hasNoWarning == true)
+            {
+                step = 2;
+                startTime = Time.time;
+                obstacleTime = Time.time - startTime;
+            }
 
-        if (step == 0 && obstacleTime <= expandingTime)
-        {
-            obstacleWarning.transform.localScale = new Vector3(easings_.EaseSineIn(obstacleTime, initialScale.x, finalScale.x - initialScale.x, expandingTime), easings_.EaseSineIn(obstacleTime, initialScale.y, finalScale.y - initialScale.y, expandingTime), 0);
-        }
-        if (step == 0 && obstacleTime > warningTime)
-        {
-            step = 2;
-            startTime = Time.time;
-            obstacleTime = Time.time - startTime;
-        }
+            if (step == 0 && obstacleTime <= expandingTime)
+            {
+                obstacleWarning.transform.localScale = new Vector3(easings_.EaseSineIn(obstacleTime, initialScale.x, finalScale.x - initialScale.x, expandingTime), easings_.EaseSineIn(obstacleTime, initialScale.y, finalScale.y - initialScale.y, expandingTime), 0);
+            }
+            if (step == 0 && obstacleTime > warningTime)
+            {
+                step = 2;
+                startTime = Time.time;
+                obstacleTime = Time.time - startTime;
+            }
 
-        if (step == 2 && obstacleTime <= expandingTime)
-        {
-            obstacle.transform.localScale = new Vector3(easings_.EaseSineIn(obstacleTime, initialScale.x, finalScale.x - initialScale.x, expandingTime), easings_.EaseSineIn(obstacleTime, initialScale.y, finalScale.y - initialScale.y, expandingTime), 0);
-        }
-        else if(step == 2 && obstacleTime > expandingTime)
-        {
-            step++;
-            startTime = Time.time;
-            obstacleTime = Time.time - startTime;
-        }
+            if (step == 2 && obstacleTime <= expandingTime)
+            {
+                obstacle.transform.localScale = new Vector3(easings_.EaseSineIn(obstacleTime, initialScale.x, finalScale.x - initialScale.x, expandingTime), easings_.EaseSineIn(obstacleTime, initialScale.y, finalScale.y - initialScale.y, expandingTime), 0);
+            }
+            else if (step == 2 && obstacleTime > expandingTime)
+            {
+                step++;
+                startTime = Time.time;
+                obstacleTime = Time.time - startTime;
+            }
 
-        if(step == 3)
+            if (step == 3)
+            {
+                if (hasNoWarning != true) Destroy(obstacleWarning);
+                Destroy(obstacle);
+                Destroy(gameObject);
+
+                step++;
+            }
+        }
+        else if (manualScaleSet.Length > 0 && index < manualScaleSet.Length)
         {
-            if(hasNoWarning != true) Destroy(obstacleWarning);
+            Debug.Log("Scale = " + obstacle.transform.localScale.x);
+
+            if (index == 0)
+            {
+                if (obstacleTime <= manualScaleSet[index].timeIndex)
+                {
+                    obstacle.transform.localScale = new Vector3(easings_.EaseSineInOut(obstacleTime, initialScale.x, manualScaleSet[index].newScale.x - initialScale.x, manualScaleSet[index].timeIndex),
+                    easings_.EaseSineInOut(obstacleTime, initialScale.y, manualScaleSet[index].newScale.y - initialScale.y, manualScaleSet[index].timeIndex), 0);
+                }
+                else if (obstacleTime > manualScaleSet[index].timeIndex)
+                {
+                    index++;
+                    startTime = Time.time;
+                    obstacleTime = Time.time - startTime;
+                }
+            }
+            else if (index > 0)
+            {
+                if (obstacleTime <= manualScaleSet[index].timeIndex)
+                {
+                    obstacle.transform.localScale = new Vector3(easings_.EaseSineInOut(obstacleTime, manualScaleSet[index - 1].newScale.x, manualScaleSet[index].newScale.x - manualScaleSet[index - 1].newScale.x, manualScaleSet[index].timeIndex),
+                    easings_.EaseSineInOut(obstacleTime, manualScaleSet[index - 1].newScale.y, manualScaleSet[index].newScale.x - manualScaleSet[index - 1].newScale.y, manualScaleSet[index].timeIndex), 0);
+                }
+                else if (obstacleTime > manualScaleSet[index].timeIndex)
+                {
+                    index++;
+                    startTime = Time.time;
+                    obstacleTime = Time.time - startTime;
+                }
+            }
+        }
+        else if (manualScaleSet.Length > 0 && index >= manualScaleSet.Length)
+        {
+            if (hasNoWarning != true) Destroy(obstacleWarning);
             Destroy(obstacle);
             Destroy(gameObject);
-
-            step++;
         }
     }
 }
