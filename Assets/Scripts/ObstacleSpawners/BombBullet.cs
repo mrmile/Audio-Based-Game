@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Analytics;
+using UnityEngine.UIElements.Experimental;
 
 public class BombBullet : MonoBehaviour
 {
@@ -49,5 +50,24 @@ public class BombBullet : MonoBehaviour
             // Rotate the object around the Z axis
             bullet.transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
         }
+
+        //-----Color Setup-------------------------------------------------------
+        objectsChildren = GetComponentsInChildren<SpriteRenderer>();
+
+        for (int i = 0; i < objectsChildren.Length; i++)
+        {
+
+            if (objectsChildren[i].gameObject.tag != "Obstacle")
+            {
+                objectsChildren[i].color = new Color(level_.levelObstaclesColor.r, level_.levelObstaclesColor.g, level_.levelObstaclesColor.b, 0.3f);
+            }
+            else if (objectsChildren[i].gameObject.tag == "Obstacle")
+            {
+                objectsChildren[i].color =
+                    new Color(level_.levelObstaclesColor.r, level_.levelObstaclesColor.g, level_.levelObstaclesColor.b, 1.0f);
+            }
+
+        }
+        //-----------------------------------------------------------------------
     }
 }
