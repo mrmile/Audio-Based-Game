@@ -3177,6 +3177,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmplifierHexagon
       objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: warningTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: hasNoWarning
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: manualScaleSet.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: manualScaleSet.Array.data[0].timeIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: manualScaleSet.Array.data[1].timeIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: manualScaleSet.Array.data[2].timeIndex
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: manualScaleSet.Array.data[0].newScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: manualScaleSet.Array.data[0].newScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: manualScaleSet.Array.data[1].newScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: manualScaleSet.Array.data[1].newScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: manualScaleSet.Array.data[2].newScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: manualScaleSet.Array.data[2].newScale.y
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
 --- !u!4 &7356169572659910558 stripped
