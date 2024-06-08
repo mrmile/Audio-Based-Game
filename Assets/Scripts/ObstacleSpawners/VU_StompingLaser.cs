@@ -25,6 +25,9 @@ public class VU_StompingLaser : MonoBehaviour
     private int step = 0;
 
     private SpriteRenderer[] objectsChildren;
+    private float startingColorValue_r = 0;
+    private float startingColorValue_g = 0;
+    private float startingColorValue_b = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +62,9 @@ public class VU_StompingLaser : MonoBehaviour
             }
             objectsChildren[i].color = new Color(level_.levelObstaclesColor.r, level_.levelObstaclesColor.g, level_.levelObstaclesColor.b, alpha);
         }
+        startingColorValue_r = level_.levelObstaclesColor.r;
+        startingColorValue_g = level_.levelObstaclesColor.g;
+        startingColorValue_b = level_.levelObstaclesColor.b;
         //-----------------------------------------------------------------------
     }
 
@@ -84,6 +90,10 @@ public class VU_StompingLaser : MonoBehaviour
         }
         else if (step == 1 && obstacleTime > initialTravelTime)
         {
+            startingColorValue_r = 1 - level_.levelObstaclesColor.r;
+            startingColorValue_g = 1 - level_.levelObstaclesColor.g;
+            startingColorValue_b = 1 - level_.levelObstaclesColor.b;
+
             step++;
             startTime = Time.time;
             obstacleTime = Time.time - startTime;
@@ -128,5 +138,30 @@ public class VU_StompingLaser : MonoBehaviour
             Destroy(obstacle);
             Destroy(gameObject);
         }
+
+        //-----Color Setup-------------------------------------------------------
+        objectsChildren = GetComponentsInChildren<SpriteRenderer>();
+
+        if (startingColorValue_r > 0.01f && step >= 2) startingColorValue_r = easings_.EaseSineOut(obstacleTime, (1 - level_.levelObstaclesColor.r), 0 - (1 - level_.levelObstaclesColor.r), 0.5f);
+        if (startingColorValue_g > 0.01f && step >= 2) startingColorValue_g = easings_.EaseSineOut(obstacleTime, (1 - level_.levelObstaclesColor.g), 0 - (1 - level_.levelObstaclesColor.g), 0.5f);
+        if (startingColorValue_b > 0.01f && step >= 2) startingColorValue_b = easings_.EaseSineOut(obstacleTime, (1 - level_.levelObstaclesColor.b), 0 - (1 - level_.levelObstaclesColor.b), 0.5f);
+
+        for (int i = 0; i < objectsChildren.Length; i++)
+        {
+
+            if (objectsChildren[i].gameObject.tag != "Obstacle")
+            {
+                objectsChildren[i].color = new Color(level_.levelObstaclesColor.r, level_.levelObstaclesColor.g, level_.levelObstaclesColor.b, 0.3f);
+            }
+            else if (objectsChildren[i].gameObject.tag == "Obstacle")
+            {
+                objectsChildren[i].color =
+                    new Color(level_.levelObstaclesColor.r + startingColorValue_r,
+                    level_.levelObstaclesColor.g + startingColorValue_g,
+                    level_.levelObstaclesColor.b + startingColorValue_b, 1.0f);
+            }
+
+        }
+        //-----------------------------------------------------------------------
     }
 }

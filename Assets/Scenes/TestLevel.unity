@@ -2981,6 +2981,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5301802114729228534, guid: 271aa86eddae66c49b857cd2bb80ddf6, type: 3}
+      propertyPath: livingTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5301802113392646997, guid: 271aa86eddae66c49b857cd2bb80ddf6, type: 3}
     - {fileID: 5301802113392646998, guid: 271aa86eddae66c49b857cd2bb80ddf6, type: 3}
@@ -3211,6 +3215,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1185081380}
     m_Modifications:
+    - target: {fileID: 1509614790876937758, guid: a5fb7086380a9f644a3c2345da550c89, type: 3}
+      propertyPath: livingTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9084652535646169064, guid: a5fb7086380a9f644a3c2345da550c89, type: 3}
       propertyPath: m_Name
       value: DoubleSnake
@@ -3506,6 +3514,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle
       objectReference: {fileID: 0}
+    - target: {fileID: 6392782793073066095, guid: 4522ebf82bbbd914fbd0640c173e7943, type: 3}
+      propertyPath: livingTime
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4522ebf82bbbd914fbd0640c173e7943, type: 3}
 --- !u!4 &7356169572659910558 stripped
@@ -3577,6 +3589,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1185081380}
     m_Modifications:
+    - target: {fileID: 7701175146703323495, guid: a476c4a973e3d6149b0fefeabd87f73e, type: 3}
+      propertyPath: livingTime
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7701175146703323512, guid: a476c4a973e3d6149b0fefeabd87f73e, type: 3}
       propertyPath: m_Name
       value: PulsingSquare

@@ -58,7 +58,7 @@ public class Bomb : MonoBehaviour
         startTime = Time.time;
 
         //-----Color Setup-------------------------------------------------------
-        objectsChildren = GetComponentsInChildren<SpriteRenderer>(); ;
+        objectsChildren = GetComponentsInChildren<SpriteRenderer>();
 
         float alpha = 255;
         for (int i = 0; i < objectsChildren.Length; i++)
