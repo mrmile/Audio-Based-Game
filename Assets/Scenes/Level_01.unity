@@ -142,9 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 88338221}
-  - component: {fileID: 88338220}
   - component: {fileID: 88338219}
-  - component: {fileID: 88338218}
   - component: {fileID: 88338217}
   - component: {fileID: 88338216}
   - component: {fileID: 88338215}
@@ -197,19 +195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb4c12d781a4e542807509dd7588ebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &88338218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88338214}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39bc005e6d6da9746a6d38a3bb20dd81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audio: {fileID: 8300000, guid: 2a5e9db6f34587442bb9e6e8e85108d9, type: 3}
 --- !u!82 &88338219
 AudioSource:
   m_ObjectHideFlags: 0
@@ -306,26 +291,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &88338220
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88338214}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5515ef83f9255644abf7e825e2f81a59, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &88338221
 Transform:
   m_ObjectHideFlags: 0
@@ -416,7 +381,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 1
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 88338216}
@@ -430,7 +395,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 1
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 88338216}
@@ -444,7 +409,7 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
-          m_CallState: 1
+          m_CallState: 2
 --- !u!1001 &224470306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -522,11 +487,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6392782793073066095, guid: 4522ebf82bbbd914fbd0640c173e7943, type: 3}
       propertyPath: minPosXY.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6392782793073066095, guid: 4522ebf82bbbd914fbd0640c173e7943, type: 3}
       propertyPath: minPosXY.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4522ebf82bbbd914fbd0640c173e7943, type: 3}
@@ -749,11 +714,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6392782793073066095, guid: 4522ebf82bbbd914fbd0640c173e7943, type: 3}
       propertyPath: scale.x
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6392782793073066095, guid: 4522ebf82bbbd914fbd0640c173e7943, type: 3}
       propertyPath: scale.y
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6392782793073066095, guid: 4522ebf82bbbd914fbd0640c173e7943, type: 3}
       propertyPath: livingTime
@@ -761,11 +726,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6392782793073066095, guid: 4522ebf82bbbd914fbd0640c173e7943, type: 3}
       propertyPath: maxPosXY.x
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6392782793073066095, guid: 4522ebf82bbbd914fbd0640c173e7943, type: 3}
       propertyPath: maxPosXY.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6392782793073066095, guid: 4522ebf82bbbd914fbd0640c173e7943, type: 3}
       propertyPath: minPosXY.x
