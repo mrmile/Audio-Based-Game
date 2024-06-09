@@ -18,11 +18,18 @@ public enum levelId
 }
 public class Scene_Manager : MonoBehaviour
 {
-    
+
     public sceneId selectedScene;
-    levelId selectedLevel;
+    public levelId selectedLevel;
     int currentSelectedLevel = 0;
     string sceneName;
+    bool currentGameplayLevelCompleted;
+
+    int score;
+
+    int hiScore01;
+    int hiScore02;
+    int hiScore03;
 
 
     private static Scene_Manager _instance;
@@ -40,25 +47,26 @@ public class Scene_Manager : MonoBehaviour
         }
         DontDestroyOnLoad(Instance);
     }
-   
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Escape) && selectedScene != sceneId.TITLE) LoadScene(sceneId.TITLE);
-        
+        if (Input.GetKeyUp(KeyCode.Escape) && selectedScene != sceneId.TITLE) LoadScene(sceneId.TITLE);
+
         else Application.Quit();
 
-        switch(selectedScene)
+        switch (selectedScene)
         {
             case sceneId.TITLE:
                 {
-                    if(Input.GetKey(KeyCode.Space))
+                    if (Input.GetKey(KeyCode.Space))
                     {
+                        currentGameplayLevelCompleted = false;
                         LoadScene(sceneId.LEVEL_SELECTION);
                     }
                     break;
@@ -73,26 +81,27 @@ public class Scene_Manager : MonoBehaviour
                     {
                         ChangeGameplayLevel(true);
                     }
-                    if(Input.GetKey(KeyCode.Space))
+                    if (Input.GetKey(KeyCode.Space))
                     {
-                        LoadGameplayLevel();                  
+                        LoadGameplayLevel();
                     }
                     break;
                 }
             case sceneId.GAME_OVER:
                 {
-                    if(Input.GetKey(KeyCode.Space))
+                    if (Input.GetKey(KeyCode.Space))
                     {
+                        currentGameplayLevelCompleted = false;
                         LoadGameplayLevel();
                     }
                     break;
                 }
             default: break;
         }
-        
-        
+
+
     }
-    
+
     public void LoadScene(sceneId id)
     {
         switch (id)
@@ -113,15 +122,17 @@ public class Scene_Manager : MonoBehaviour
                 {
                     sceneName = "Game_Over_Scene";
                     selectedScene = sceneId.GAME_OVER;
+
                     break;
                 }
             case sceneId.GAMEPLAY:
-                {                  
+                {
                     selectedScene = sceneId.GAMEPLAY;
+                    score = 0;
                     break;
                 }
 
-                
+
             default: break;
         }
 
@@ -146,6 +157,8 @@ public class Scene_Manager : MonoBehaviour
             }
             else currentSelectedLevel = System.Enum.GetValues(typeof(levelId)).Length - 1;
         }
+
+        selectedLevel = (levelId)currentSelectedLevel;
     }
 
     void LoadGameplayLevel()
@@ -169,5 +182,56 @@ public class Scene_Manager : MonoBehaviour
         LoadScene(sceneId.GAMEPLAY);
     }
 
-    
+    public void SetCurrentLevelAsCompleted()
+    {
+        currentGameplayLevelCompleted = true;
+    }
+    public bool GetCurrentLevelCompleted()
+    {
+        return currentGameplayLevelCompleted;
+    }
+    public void CheckHiScore()
+    {
+        switch (selectedLevel)
+        {
+            case levelId.LEVEL01:
+                {
+                    if (score > hiScore01) hiScore01 = score;
+                    break;
+                }
+            case levelId.LEVEL02:
+                {
+                    if (score > hiScore02) hiScore02 = score;
+                    break;
+                }
+            case levelId.LEVEL03:
+                {
+                    if (score > hiScore03) hiScore03 = score;
+                    break;
+                }
+            default: break;
+        }
+    }
+
+    public void SetScore(int score)
+    {
+        this.score = score;
+    }
+    public int GetScore()
+    {
+        return score;
+    }
+    public int GetHiScore(levelId level)
+    {
+        switch(level)
+        {
+            case levelId.LEVEL01: return hiScore01;
+            case levelId.LEVEL02: return hiScore02;
+            case levelId.LEVEL03: return hiScore03;
+            default: return 0;
+
+
+        }
+
+    }
 }
