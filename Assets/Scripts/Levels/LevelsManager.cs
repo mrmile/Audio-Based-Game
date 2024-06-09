@@ -259,4 +259,13 @@ public class LevelsManager : MonoBehaviour
     {
         changesTime = timeChangerSet;
     }
+
+    public void StartLevel()
+    {
+        //calls actual function that sets up necessary things for starting level
+    }
+    public void EndLevel()
+    {
+        //call actual endLevelFunction
+    }
 }
