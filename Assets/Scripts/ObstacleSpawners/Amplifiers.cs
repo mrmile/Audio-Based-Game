@@ -182,6 +182,25 @@ public class Amplifiers : MonoBehaviour
                         obstacleTime = Time.time - startTime;
                     }
                 }
+
+                //-----Color Setup-------------------------------------------------------
+                objectsChildren = GetComponentsInChildren<SpriteRenderer>();
+
+                for (int i = 0; i < objectsChildren.Length; i++)
+                {
+
+                    if (objectsChildren[i].gameObject.tag != "Obstacle")
+                    {
+                        objectsChildren[i].color = new Color(level_.levelObstaclesColor.r, level_.levelObstaclesColor.g, level_.levelObstaclesColor.b, 0.3f);
+                    }
+                    else if (objectsChildren[i].gameObject.tag == "Obstacle")
+                    {
+                        objectsChildren[i].color =
+                            new Color(level_.levelObstaclesColor.r, level_.levelObstaclesColor.g, level_.levelObstaclesColor.b, 1.0f);
+                    }
+
+                }
+                //-----------------------------------------------------------------------
             }
             else if (hasNoWarning != true)
             {
