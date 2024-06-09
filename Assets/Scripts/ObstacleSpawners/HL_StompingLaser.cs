@@ -37,8 +37,8 @@ public class HL_StompingLaser : MonoBehaviour
 
         float Ypos = Random.Range(minRandY, maxRandY);
 
-        obstacleWarning.transform.position = new Vector3(10.5f, Ypos, 0);
-        obstacle.transform.position = new Vector3(10.5f, Ypos, 0);
+        obstacleWarning.transform.position = new Vector3(10.0f, Ypos, 0);
+        obstacle.transform.position = new Vector3(10.0f, Ypos, 0);
 
         obstacleWarning.transform.localScale = new Vector3(0, 0, 0);
         obstacle.transform.localScale = new Vector3(0, 0, 0);
