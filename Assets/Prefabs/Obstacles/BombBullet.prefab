@@ -380,6 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotationSpeed: 360
+  disableAutoMovement: 0
   bullet: {fileID: 8505374780110170542}
 --- !u!1 &8505374780007155374
 GameObject:
@@ -650,6 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotationSpeed: 360
+  disableAutoMovement: 0
   bullet: {fileID: 8505374780687625692}
 --- !u!1 &8505374780316798049
 GameObject:
@@ -848,6 +850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotationSpeed: 360
+  disableAutoMovement: 0
   bullet: {fileID: 8505374779896379085}
 --- !u!1 &8505374780598274852
 GameObject:
@@ -1007,6 +1010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotationSpeed: 360
+  disableAutoMovement: 0
   bullet: {fileID: 8505374780764646654}
 --- !u!1 &8505374780687625692
 GameObject:
@@ -1166,6 +1170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotationSpeed: 360
+  disableAutoMovement: 0
   bullet: {fileID: 8505374781187336183}
 --- !u!1 &8505374780737351324
 GameObject:
@@ -1727,6 +1732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotationSpeed: 360
+  disableAutoMovement: 0
   bullet: {fileID: 8505374780867164256}
 --- !u!1 &8505374781187336183
 GameObject:
@@ -1997,6 +2003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotationSpeed: 360
+  disableAutoMovement: 0
   bullet: {fileID: 8505374780007155374}
 --- !u!1 &8505374781408052709
 GameObject:
@@ -2225,4 +2232,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotationSpeed: 360
+  disableAutoMovement: 0
   bullet: {fileID: 8505374780316798049}
