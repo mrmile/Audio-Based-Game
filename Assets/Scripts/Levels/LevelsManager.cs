@@ -161,25 +161,95 @@ public class LevelsManager : MonoBehaviour
         camera.transform.position = originalPosition;
     }
 
-    public void ChangeObstacleColor(Color newObstaclesColor)
+
+
+    public void ChangeObstacleColor_Reddish()
     {
         lastLevelObstaclesColor = levelObstaclesColor;
-        newLevelObstaclesColor = newObstaclesColor;
-
+        newLevelObstaclesColor = new Color(1, 0, 0.2880249f);
         obstacleColorChanging = true;
 
+        mechanicalStartTime = Time.time;
+        mechanicalTime = Time.time - mechanicalStartTime;
+    }
+    public void ChangeObstacleColor_Cyan()
+    {
+        lastLevelObstaclesColor = levelObstaclesColor;
+        newLevelObstaclesColor = new Color(0.5f, 0.7f, 0);
+        obstacleColorChanging = true;
+
+        mechanicalStartTime = Time.time;
+        mechanicalTime = Time.time - mechanicalStartTime;
+    }
+    public void ChangeObstacleColor_Green()
+    {
+        lastLevelObstaclesColor = levelObstaclesColor;
+        newLevelObstaclesColor = new Color(0, 1, 0.313278f);
+        obstacleColorChanging = true;
+
+        mechanicalStartTime = Time.time;
+        mechanicalTime = Time.time - mechanicalStartTime;
+    }
+    public void ChangeObstacleColor_Yellow()
+    {
+        lastLevelObstaclesColor = levelObstaclesColor;
+        newLevelObstaclesColor = new Color(1, 0.9215326f, 0);
+        obstacleColorChanging = true;
+
+        mechanicalStartTime = Time.time;
+        mechanicalTime = Time.time - mechanicalStartTime;
+    }
+    public void ChangeObstacleColor_Purple()
+    {
+        lastLevelObstaclesColor = levelObstaclesColor;
+        newLevelObstaclesColor = new Color(0.5028934f, 0, 1);
+        obstacleColorChanging = true;
+
+        mechanicalStartTime = Time.time;
+        mechanicalTime = Time.time - mechanicalStartTime;
+    }
+    public void ChangeObstacleColor_RedPure()
+    {
+        lastLevelObstaclesColor = levelObstaclesColor;
+        newLevelObstaclesColor = new Color(1, 0, 0);
+        obstacleColorChanging = true;
+
+        mechanicalStartTime = Time.time;
+        mechanicalTime = Time.time - mechanicalStartTime;
+    }
+    public void ChangeObstacleColor_Grey()
+    {
+        lastLevelObstaclesColor = levelObstaclesColor;
+        newLevelObstaclesColor = new Color(0.5f, 0.5f, 0.5f);
+        obstacleColorChanging = true;
 
         mechanicalStartTime = Time.time;
         mechanicalTime = Time.time - mechanicalStartTime;
     }
 
-    public void ChangeLevelColor(Color newLevelColor)
+    public void ChangeLevelBGColor_DarkBlue()
     {
         lastLevelBackgroundColor = levelBackgroundColor;
-        newLevelBackgroundColor = newLevelColor;
-
+        newLevelBackgroundColor = new Color(0, 0.008680862f, 0.1254902f);
         bgColorChanging = true;
 
+        mechanicalStartTime = Time.time;
+        mechanicalTime = Time.time - mechanicalStartTime;
+    }
+    public void ChangeLevelBGColor_DarkRed()
+    {
+        lastLevelBackgroundColor = levelBackgroundColor;
+        newLevelBackgroundColor = new Color(0.1254902f, 0, 0.01072059f);
+        bgColorChanging = true;
+
+        mechanicalStartTime = Time.time;
+        mechanicalTime = Time.time - mechanicalStartTime;
+    }
+    public void ChangeLevelBGColor_Black()
+    {
+        lastLevelBackgroundColor = levelBackgroundColor;
+        newLevelBackgroundColor = new Color(0, 0, 0);
+        bgColorChanging = true;
 
         mechanicalStartTime = Time.time;
         mechanicalTime = Time.time - mechanicalStartTime;
