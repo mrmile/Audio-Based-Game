@@ -17,5 +17,9 @@ public class testScript : MonoBehaviour
         {
             manager.LoadScene(sceneId.GAME_OVER);
         }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            manager.SetCurrentLevelAsCompleted();
+        }
     }
 }
