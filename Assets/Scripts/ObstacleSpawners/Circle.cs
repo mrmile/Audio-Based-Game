@@ -148,8 +148,6 @@ public class Circle : MonoBehaviour
         }
 
         //-----Color Setup-------------------------------------------------------
-        objectsChildren = GetComponentsInChildren<SpriteRenderer>();
-
         if (startingColorValue_r > 0.00f && step >= 1) startingColorValue_r = easings_.EaseSineInOut(obstacleTime, (1 - level_.levelObstaclesColor.r), 0 - (1 - level_.levelObstaclesColor.r), 0.25f);
         if (startingColorValue_g > 0.00f && step >= 1) startingColorValue_g = easings_.EaseSineInOut(obstacleTime, (1 - level_.levelObstaclesColor.g), 0 - (1 - level_.levelObstaclesColor.g), 0.25f);
         if (startingColorValue_b > 0.00f && step >= 1) startingColorValue_b = easings_.EaseSineInOut(obstacleTime, (1 - level_.levelObstaclesColor.b), 0 - (1 - level_.levelObstaclesColor.b), 0.25f);

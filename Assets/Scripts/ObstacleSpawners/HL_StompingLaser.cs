@@ -140,8 +140,6 @@ public class HL_StompingLaser : MonoBehaviour
         }
 
         //-----Color Setup-------------------------------------------------------
-        objectsChildren = GetComponentsInChildren<SpriteRenderer>();
-
         if (startingColorValue_r > 0.01f && step >= 2) startingColorValue_r = easings_.EaseSineOut(obstacleTime, (1 - level_.levelObstaclesColor.r), 0 - (1 - level_.levelObstaclesColor.r), 0.5f);
         if (startingColorValue_g > 0.01f && step >= 2) startingColorValue_g = easings_.EaseSineOut(obstacleTime, (1 - level_.levelObstaclesColor.g), 0 - (1 - level_.levelObstaclesColor.g), 0.5f);
         if (startingColorValue_b > 0.01f && step >= 2) startingColorValue_b = easings_.EaseSineOut(obstacleTime, (1 - level_.levelObstaclesColor.b), 0 - (1 - level_.levelObstaclesColor.b), 0.5f);

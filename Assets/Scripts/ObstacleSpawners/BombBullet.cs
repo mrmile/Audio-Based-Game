@@ -52,8 +52,6 @@ public class BombBullet : MonoBehaviour
         }
 
         //-----Color Setup-------------------------------------------------------
-        objectsChildren = GetComponentsInChildren<SpriteRenderer>();
-
         for (int i = 0; i < objectsChildren.Length; i++)
         {
 

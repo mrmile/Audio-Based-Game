@@ -155,6 +155,26 @@ public class Bomb : MonoBehaviour
 
             Invoke("destroyBombParent", 5.0f);
         }
+
+        //-----Color Setup-------------------------------------------------------
+        if(step < 3)
+        {
+            for (int i = 0; i < objectsChildren.Length; i++)
+            {
+
+                if (objectsChildren[i].gameObject.tag != "Obstacle")
+                {
+                    objectsChildren[i].color = new Color(level_.levelObstaclesColor.r, level_.levelObstaclesColor.g, level_.levelObstaclesColor.b, 0.3f);
+                }
+                else if (objectsChildren[i].gameObject.tag == "Obstacle")
+                {
+                    objectsChildren[i].color =
+                        new Color(level_.levelObstaclesColor.r, level_.levelObstaclesColor.g, level_.levelObstaclesColor.b, 1.0f);
+                }
+
+            }
+        }
+        //-----------------------------------------------------------------------
     }
 
     void destroyBombParent()
