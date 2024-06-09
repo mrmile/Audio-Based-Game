@@ -42,7 +42,7 @@ public class Circle : MonoBehaviour
         obstacle.transform.localScale = new Vector3(0, 0, 0);
 
         obstacle.transform.localPosition = new Vector3(Random.Range(minPosXY.x, maxPosXY.x), Random.Range(minPosXY.y, maxPosXY.y), 0);
-        obstacleWarning.transform.localPosition = new Vector3(Random.Range(minPosXY.x, maxPosXY.x), Random.Range(minPosXY.y, maxPosXY.y), 0);
+        obstacleWarning.transform.localPosition = new Vector3(obstacle.transform.localPosition.x, obstacle.transform.localPosition.y, 0);
 
         if (gameObject.transform.parent != null)
         {

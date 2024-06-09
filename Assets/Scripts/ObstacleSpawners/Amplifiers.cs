@@ -52,7 +52,7 @@ public class Amplifiers : MonoBehaviour
         obstacle.transform.localScale = new Vector3(0, 0, 0);
 
         obstacle.transform.localPosition = new Vector3(UnityEngine.Random.Range(minPosXY.x, maxPosXY.x), UnityEngine.Random.Range(minPosXY.y, maxPosXY.y), 0);
-        obstacleWarning.transform.localPosition = new Vector3(UnityEngine.Random.Range(minPosXY.x, maxPosXY.x), UnityEngine.Random.Range(minPosXY.y, maxPosXY.y), 0);
+        obstacleWarning.transform.localPosition = new Vector3(obstacle.transform.localPosition.x, obstacle.transform.localPosition.y, 0);
 
         startTime = Time.time;
 

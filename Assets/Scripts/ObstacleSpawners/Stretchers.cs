@@ -67,9 +67,9 @@ public class Stretchers : MonoBehaviour
         obstacleStretchingBar.transform.localScale = new Vector3(0, 0, 0);
 
         obstacleWarning.transform.localPosition = new Vector3(Random.Range(minPosXY.x, maxPosXY.x), Random.Range(minPosXY.y, maxPosXY.y), 0);
-        obstacleSquare_1.transform.localPosition = new Vector3(Random.Range(minPosXY.x, maxPosXY.x), Random.Range(minPosXY.y + 0.35f, maxPosXY.y + 0.35f), 0);
-        obstacleSquare_2.transform.localPosition = new Vector3(Random.Range(minPosXY.x, maxPosXY.x), Random.Range(minPosXY.y - 0.35f, maxPosXY.y - 0.35f), 0);
-        obstacleStretchingBar.transform.localPosition = new Vector3(Random.Range(minPosXY.x, maxPosXY.x), Random.Range(minPosXY.y, maxPosXY.y), 0);
+        obstacleSquare_1.transform.localPosition = new Vector3(obstacleWarning.transform.localPosition.x, obstacleWarning.transform.localPosition.y + 0.35f, 0);
+        obstacleSquare_2.transform.localPosition = new Vector3(obstacleWarning.transform.localPosition.x, obstacleWarning.transform.localPosition.y - 0.35f, 0);
+        obstacleStretchingBar.transform.localPosition = new Vector3(obstacleWarning.transform.localPosition.x, obstacleWarning.transform.localPosition.y, 0);
 
         startTime = Time.time;
 

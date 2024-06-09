@@ -53,12 +53,12 @@ public class DirectionalSnake : MonoBehaviour
         if(isPartOfBomb == false)
         {
             gameObjectForSnaking.transform.position = new Vector3(Random.Range(minStartPos.x, maxStartPos.x), Random.Range(minStartPos.y, maxStartPos.y), 0);
-            gameObject.transform.position = new Vector3(Random.Range(minStartPos.x, maxStartPos.x), Random.Range(minStartPos.y, maxStartPos.y), 0);
+            gameObject.transform.position = new Vector3(gameObjectForSnaking.transform.position.x, gameObjectForSnaking.transform.position.y, 0);
         }
         else if (isPartOfBomb == true)
         {
             gameObjectForSnaking.transform.localPosition = new Vector3(Random.Range(minStartPos.x, maxStartPos.x), Random.Range(minStartPos.y, maxStartPos.y), 0);
-            gameObject.transform.localPosition = new Vector3(Random.Range(minStartPos.x, maxStartPos.x), Random.Range(minStartPos.y, maxStartPos.y), 0);
+            gameObject.transform.localPosition = new Vector3(gameObjectForSnaking.transform.localPosition.x, gameObjectForSnaking.transform.localPosition.y, 0);
         }
 
         gameObject.transform.eulerAngles = new Vector3(0, 0, startingRotation);
