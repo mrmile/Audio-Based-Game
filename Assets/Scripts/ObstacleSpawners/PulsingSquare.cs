@@ -84,7 +84,8 @@ public class PulsingSquare : MonoBehaviour
 
         if(rotationSpeed != 0)
         {
-            gameObject.transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+            obstacleWarning.transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+            obstacle.transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
         }
 
         if (obstacleWarning.transform.localScale.x < scale.x)

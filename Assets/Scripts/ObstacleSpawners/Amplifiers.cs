@@ -86,7 +86,8 @@ public class Amplifiers : MonoBehaviour
 
         if (rotationSpeed != 0)
         {
-            gameObject.transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+            obstacleWarning.transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+            obstacle.transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
         }
 
         if(manualScaleSet.Length == 0)
