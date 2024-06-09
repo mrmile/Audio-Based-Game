@@ -13,22 +13,57 @@ public class LevelsManager : MonoBehaviour
     public Camera camera;
     private Vector3 originalCameraPosition;
 
+    private Color lastLevelObstaclesColor = Color.white;
+    private Color lastLevelBackgroundColor = Color.white;
+    private Color newLevelObstaclesColor = Color.white;
+    private Color newLevelBackgroundColor = Color.white;
+    private bool obstacleColorChanging = false;
+    private bool bgColorChanging = false;
+
     public float levelTime = 0;
+    private float mechanicalTime = 0;
     float startTime = 0;
+    float mechanicalStartTime = 0;
+    private float changesTime = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         easings_ = FindObjectOfType<R_Easings>();
         startTime = Time.time;
+        mechanicalStartTime = Time.time;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         levelTime = Time.time - startTime;
+        mechanicalTime = Time.time - mechanicalStartTime;
 
         camera.backgroundColor = levelBackgroundColor;
+
+        if (obstacleColorChanging == true && mechanicalTime <= changesTime)
+        {
+            levelObstaclesColor = new Color(easings_.EaseLinearInOut(mechanicalTime, lastLevelObstaclesColor.r, newLevelObstaclesColor.r - lastLevelObstaclesColor.r, changesTime),
+                easings_.EaseLinearInOut(mechanicalTime, lastLevelObstaclesColor.g, newLevelObstaclesColor.g - lastLevelObstaclesColor.g, changesTime),
+                easings_.EaseLinearInOut(mechanicalTime, lastLevelObstaclesColor.b, newLevelObstaclesColor.b - lastLevelObstaclesColor.b, changesTime));
+        }
+        else if (obstacleColorChanging == true && mechanicalTime > changesTime)
+        {
+            obstacleColorChanging = false;
+        }
+
+        if (bgColorChanging == true)
+        {
+            levelBackgroundColor = new Color(easings_.EaseLinearInOut(mechanicalTime, lastLevelBackgroundColor.r, newLevelBackgroundColor.r - lastLevelBackgroundColor.r, changesTime),
+                easings_.EaseLinearInOut(mechanicalTime, lastLevelBackgroundColor.g, newLevelBackgroundColor.g - lastLevelBackgroundColor.g, changesTime),
+                easings_.EaseLinearInOut(mechanicalTime, lastLevelBackgroundColor.b, newLevelBackgroundColor.b - lastLevelBackgroundColor.b, changesTime));
+        }
+        else if (bgColorChanging == true && mechanicalTime > changesTime)
+        {
+            bgColorChanging = false;
+        }
     }
 
     public void CameraDirectionalShake(Vector2 directionVector, float shakeDuration, float shakeIntensity)
@@ -124,5 +159,34 @@ public class LevelsManager : MonoBehaviour
 
         // Ensure the final position is exactly the original position
         camera.transform.position = originalPosition;
+    }
+
+    public void ChangeObstacleColor(Color newObstaclesColor)
+    {
+        lastLevelObstaclesColor = levelObstaclesColor;
+        newLevelObstaclesColor = newObstaclesColor;
+
+        obstacleColorChanging = true;
+
+
+        mechanicalStartTime = Time.time;
+        mechanicalTime = Time.time - mechanicalStartTime;
+    }
+
+    public void ChangeLevelColor(Color newLevelColor)
+    {
+        lastLevelBackgroundColor = levelBackgroundColor;
+        newLevelBackgroundColor = newLevelColor;
+
+        bgColorChanging = true;
+
+
+        mechanicalStartTime = Time.time;
+        mechanicalTime = Time.time - mechanicalStartTime;
+    }
+
+    public void SetChangerTimer(float timeChangerSet)
+    {
+        changesTime = timeChangerSet;
     }
 }
