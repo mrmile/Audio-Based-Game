@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Playerinput : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-   
+
 
 
     [SerializeField] Rigidbody2D rb;
@@ -14,16 +14,18 @@ public class Playerinput : MonoBehaviour
     [SerializeField] float dashTime;
     float speed;
     float dashTimer;
-    bool dashing = false;
+    public bool dashing = false;
     bool lockMovement = false;
 
-    [SerializeField] Vector2 movement;
+    public Vector2 movement;
     Vector2 lastMovement;
 
     float myFloat;
 
-    
+    public bool canMove = true;
 
+
+    [SerializeField] TrailRenderer trail;
 
     [SerializeField] Queue<bool> dashInputBuffer = new Queue<bool>();
 
@@ -46,13 +48,19 @@ public class Playerinput : MonoBehaviour
         sprAnimator = spr.GetComponent<Animator>();
         speed = speedRef;
         rb = GetComponent<Rigidbody2D>();
+
+        trail = GetComponentInChildren<TrailRenderer>();
     }
 
     private void Update()
     {
         //get movement input
-        movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        movement.Normalize();
+        if (canMove)
+        {
+            movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            movement.Normalize();
+        }
+
         if (!lockMovement)
             lastMovement = movement;
 
@@ -125,6 +133,11 @@ public class Playerinput : MonoBehaviour
             lockMovement = false;
         }
 
+
+        if (dashing) trail.enabled = true;
+        else trail.enabled = false;
+
+
     }
 
 
@@ -132,12 +145,14 @@ public class Playerinput : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!lockMovement)
-            MoveCharacter(movement);
-        else
-            MoveCharacter(lastMovement);
+        if (canMove)
+            if (!lockMovement)
+                MoveCharacter(movement, speed);
+            else
+                MoveCharacter(lastMovement, speed);
+
     }
-    void MoveCharacter(Vector2 direction)
+    public void MoveCharacter(Vector2 direction, float speed)
     {
         if (!dashing)
             rb.velocity = direction * speed * 100.0f * Time.deltaTime;
