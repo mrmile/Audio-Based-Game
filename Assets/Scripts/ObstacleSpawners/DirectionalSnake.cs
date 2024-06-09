@@ -96,8 +96,9 @@ public class DirectionalSnake : MonoBehaviour
         obstacleTime = Time.time - startTime;
         obstacleSpawnTime = Time.time - startSpawnTime;
 
+        gameObject.transform.localScale = new Vector3(0, 0, 0);
 
-        if(obstacleSpawnTime > snakeSpeedDelay)
+        if (obstacleSpawnTime > snakeSpeedDelay)
         {
             GameObject go = (GameObject)Instantiate(gameObjectForSnaking, gameObject.transform.position, transform.rotation);
             go.transform.parent = levelGameObject.transform;

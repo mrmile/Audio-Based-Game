@@ -73,8 +73,9 @@ public class DoubleSnake : MonoBehaviour
         obstacleTime = Time.time - startTime;
         obstacleSpawnTime = Time.time - startSpawnTime;
 
+        gameObject.transform.localScale = new Vector3(0, 0, 0);
 
-        if(obstacleSpawnTime > snakeSpeedDelay && step == 0)
+        if (obstacleSpawnTime > snakeSpeedDelay && step == 0)
         {
             gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + snakeGameObjectSeparation, gameObject.transform.position.z);
             GameObject go = (GameObject)Instantiate(gameObjectForSnaking, gameObject.transform.position, transform.rotation);
