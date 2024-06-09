@@ -4465,7 +4465,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577730349}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b129bdf514c7a54cb16fd8ed377ac78, type: 3}
   m_Name: 
@@ -7733,6 +7733,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a1fe5d7f84a864ea3e9409e98e3e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 1075980737}
+  speedRef: 5
+  rotTime: 0
+  dashSpeedMultiplier: 5
+  dashTime: 0.1
+  movement: {x: -3, y: 0}
+  currentAnimation: PlayerStop
 --- !u!1001 &1083343601
 PrefabInstance:
   m_ObjectHideFlags: 0
