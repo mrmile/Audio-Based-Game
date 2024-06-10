@@ -81,7 +81,7 @@ public class LevelsManager : MonoBehaviour
 
     IEnumerator Shake(float duration, float intensity)
     {
-        originalCameraPosition = camera.transform.position;
+        originalCameraPosition = new Vector3(0, 0, -10);
 
         float elapsedTime = 0f;
 
@@ -103,7 +103,7 @@ public class LevelsManager : MonoBehaviour
 
     IEnumerator Shake(Vector2 directionVector, float shakeDuration, float shakeIntensity)
     {
-        Vector3 originalPosition = camera.transform.position;
+        Vector3 originalPosition = new Vector3(0, 0, -10);
         Vector3 targetPosition = new Vector3(originalPosition.x + directionVector.x * shakeIntensity,
                                             originalPosition.y + directionVector.y * shakeIntensity,
                                             originalPosition.z);
