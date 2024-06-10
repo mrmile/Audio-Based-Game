@@ -1719,6 +1719,13 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 22bb24d2e5342e3409f9a3690e1e6e0f, type: 2}
     - {fileID: 11400000, guid: 39e34a2b1a216a94eb1346bebe59dd3b, type: 2}
     - {fileID: 11400000, guid: c51e71e4148ea164085f27ed3edbd93f, type: 2}
+    - {fileID: 11400000, guid: 0574e801a9f3c534ebb87723992ada0e, type: 2}
+    - {fileID: 11400000, guid: 1d667b14e9ec8094ca1bfb9efbc36897, type: 2}
+    - {fileID: 11400000, guid: 8cd1be638bd5fb6489745ecd5e6be674, type: 2}
+    - {fileID: 11400000, guid: 5d76b986eb3184547a1494450896642e, type: 2}
+    - {fileID: 11400000, guid: 114242daf6436da4eb0c0c704ca16e8d, type: 2}
+    - {fileID: 11400000, guid: 3bc968f6bc426d04caecf530ef87fb72, type: 2}
+    - {fileID: 11400000, guid: 088661eb3864fa74aae3474673120ef5, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -1758,7 +1765,7 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
-            m_FloatArgument: 0
+            m_FloatArgument: 0.5
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
@@ -1767,6 +1774,104 @@ MonoBehaviour:
         - m_Target: {fileID: 88338216}
           m_TargetAssemblyTypeName: LevelsManager, Assembly-CSharp
           m_MethodName: ChangeObstacleColor_Grey
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 88338216}
+          m_TargetAssemblyTypeName: LevelsManager, Assembly-CSharp
+          m_MethodName: ChangeObstacleColor_Green
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 88338216}
+          m_TargetAssemblyTypeName: LevelsManager, Assembly-CSharp
+          m_MethodName: ChangeLevelBGColor_DarkRed
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 88338216}
+          m_TargetAssemblyTypeName: LevelsManager, Assembly-CSharp
+          m_MethodName: ChangeLevelBGColor_DarkBlue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 88338216}
+          m_TargetAssemblyTypeName: LevelsManager, Assembly-CSharp
+          m_MethodName: ChangeLevelBGColor_Black
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 88338216}
+          m_TargetAssemblyTypeName: LevelsManager, Assembly-CSharp
+          m_MethodName: ChangeObstacleColor_Yellow
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 88338216}
+          m_TargetAssemblyTypeName: LevelsManager, Assembly-CSharp
+          m_MethodName: ChangeObstacleColor_Purple
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 88338216}
+          m_TargetAssemblyTypeName: LevelsManager, Assembly-CSharp
+          m_MethodName: ChangeObstacleColor_Cyan
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5921,7 +6026,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
+      propertyPath: spawnArea.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: angleDirection
@@ -6330,7 +6439,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
+      propertyPath: spawnArea.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: angleDirection
@@ -7712,7 +7825,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
+      propertyPath: spawnArea.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: angleDirection
@@ -9906,7 +10023,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
+      propertyPath: spawnArea.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: angleDirection
@@ -11911,7 +12032,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
+      propertyPath: spawnArea.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: angleDirection
@@ -12840,7 +12965,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
+      propertyPath: spawnArea.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: angleDirection
@@ -12931,7 +13060,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
+      propertyPath: spawnArea.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: angleDirection
@@ -13129,7 +13262,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
+      propertyPath: spawnArea.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: angleDirection
@@ -14704,7 +14841,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
+      propertyPath: spawnArea.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: angleDirection
@@ -16425,7 +16566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
+      propertyPath: spawnArea.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: angleDirection
@@ -17561,7 +17706,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
+      propertyPath: spawnArea.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: angleDirection
@@ -20072,7 +20221,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: bulletSpeed
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
+      propertyPath: spawnArea.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1943975574641880794, guid: cf5632220479b2546837db6fb500cf12, type: 3}
       propertyPath: angleDirection

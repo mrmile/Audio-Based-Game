@@ -54,7 +54,7 @@ public class LevelsManager : MonoBehaviour
             obstacleColorChanging = false;
         }
 
-        if (bgColorChanging == true)
+        if (bgColorChanging == true && mechanicalTime <= changesTime)
         {
             levelBackgroundColor = new Color(easings_.EaseLinearInOut(mechanicalTime, lastLevelBackgroundColor.r, newLevelBackgroundColor.r - lastLevelBackgroundColor.r, changesTime),
                 easings_.EaseLinearInOut(mechanicalTime, lastLevelBackgroundColor.g, newLevelBackgroundColor.g - lastLevelBackgroundColor.g, changesTime),
@@ -64,6 +64,7 @@ public class LevelsManager : MonoBehaviour
         {
             bgColorChanging = false;
         }
+
     }
 
     public void CameraDirectionalShake(Vector2 directionVector, float shakeDuration, float shakeIntensity)
@@ -230,7 +231,7 @@ public class LevelsManager : MonoBehaviour
     public void ChangeLevelBGColor_DarkBlue()
     {
         lastLevelBackgroundColor = levelBackgroundColor;
-        newLevelBackgroundColor = new Color(0, 0.008680862f, 0.1254902f);
+        newLevelBackgroundColor = new Color(0, 0.008f, 0.125f);
         bgColorChanging = true;
 
         mechanicalStartTime = Time.time;
@@ -239,7 +240,7 @@ public class LevelsManager : MonoBehaviour
     public void ChangeLevelBGColor_DarkRed()
     {
         lastLevelBackgroundColor = levelBackgroundColor;
-        newLevelBackgroundColor = new Color(0.1254902f, 0, 0.01072059f);
+        newLevelBackgroundColor = new Color(0.125f, 0, 0.0107f);
         bgColorChanging = true;
 
         mechanicalStartTime = Time.time;
