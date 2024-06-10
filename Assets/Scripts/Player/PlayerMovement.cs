@@ -61,22 +61,21 @@ public class PlayerMovement : MonoBehaviour
             movement.Normalize();
         }
 
-        if (!lockMovement)
+        if (!lockMovement && movement != Vector2.zero)
             lastMovement = movement;
 
         //get dash input
-        bool tryDash = false;
+        
 
-        if (movement != Vector2.zero)
+
+        bool tryDash = Input.GetButtonDown("Jump");
+
+        if (tryDash && canMove)
         {
-            tryDash = Input.GetButtonDown("Jump");
-
-            if (tryDash)
-            {
-                dashInputBuffer.Enqueue(true);
-                Invoke("DequeueInputDash", 0.5f);
-            }
+            dashInputBuffer.Enqueue(true);
+            Invoke("DequeueInputDash", 0.5f);
         }
+        
 
 
         if (dashInputBuffer.Count > 0 && dashInputBuffer.Peek() == true && !dashing)
@@ -146,10 +145,13 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         if (canMove)
-            if (!lockMovement)
-                MoveCharacter(movement, speed);
-            else
+            if (lockMovement)
                 MoveCharacter(lastMovement, speed);
+            else
+                if (dashing && movement == Vector2.zero)
+                    MoveCharacter(lastMovement, speed);
+                else
+                    MoveCharacter(movement, speed);
 
     }
     public void MoveCharacter(Vector2 direction, float speed)
