@@ -44,11 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c15bcea41653e46b15e0ec339bd841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2622575308222108578, guid: 966c2a3fb578617479173e01ec16aa03, type: 3}
+  debugLineLength: 1
   angleDirection: 0
   angleOffset: 30
   spawnArea: {x: 0.5, y: 0.5}
   bulletCount: 5
   timeBetweenBullets: 0.5
+  bulletPrefab: {fileID: 2622575308222108578, guid: 966c2a3fb578617479173e01ec16aa03, type: 3}
+  bulletSize: {x: 0.25, y: 0.25}
   bulletSpeed: 5
-  debugLineLength: 1
+  randomBulletSpeed: 0
+  minVal: 0
+  maxVal: 0
