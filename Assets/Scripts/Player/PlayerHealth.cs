@@ -27,11 +27,14 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float currentFlashingTime;
     SpriteRenderer sp;
 
+    AudioSource hitSfx;
     // Start is called before the first frame update
     void Start()
     {
         movement = GetComponent<PlayerMovement>();
         sp = GetComponentInChildren<SpriteRenderer>();
+        hitSfx = GetComponent<AudioSource>();
+
         canTakeHits = true;
         flashingTime = 1.0f / flashTimesPerSecond * invulnerableTime;
     }
@@ -100,6 +103,7 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle") && canTakeHits)
         {
             //print("hit");
+            hitSfx.Play();
             currentHits++;
             canTakeHits = false;
 
