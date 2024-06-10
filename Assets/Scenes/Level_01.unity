@@ -1056,6 +1056,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmplifierHexagon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: finalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: finalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: rotationSpeed
+      value: 72
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
 --- !u!1 &82497864 stripped
@@ -4394,7 +4406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7737973025694202146, guid: 8077f04d4efdfb04b957810a17c2b562, type: 3}
       propertyPath: maxRandX
-      value: 19
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7737973025694202146, guid: 8077f04d4efdfb04b957810a17c2b562, type: 3}
       propertyPath: minRandX
@@ -5343,6 +5355,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmplifierHexagon (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: finalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: finalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: rotationSpeed
+      value: 72
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
 --- !u!4 &447181128 stripped
@@ -6266,6 +6290,18 @@ PrefabInstance:
     - target: {fileID: 7236575422415923783, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
       propertyPath: m_Name
       value: AmplifierHexagon (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: finalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: finalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236575422415923785, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
+      propertyPath: rotationSpeed
+      value: 72
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb203cea170df7d4585c5cc6090eff2a, type: 3}
@@ -15150,7 +15186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1104598936291215120, guid: 667675e2bec91644cbb8e3d488fa3c81, type: 3}
       propertyPath: invincible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1104598936291215124, guid: 667675e2bec91644cbb8e3d488fa3c81, type: 3}
       propertyPath: m_RootOrder
