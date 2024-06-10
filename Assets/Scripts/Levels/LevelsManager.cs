@@ -5,6 +5,8 @@ using UnityEngine.UIElements.Experimental;
 
 public class LevelsManager : MonoBehaviour
 {
+    Scene_Manager sceneManager;
+
     R_Easings easings_;
 
     public Color levelObstaclesColor = Color.white;
@@ -32,7 +34,7 @@ public class LevelsManager : MonoBehaviour
         easings_ = FindObjectOfType<R_Easings>();
         startTime = Time.time;
         mechanicalStartTime = Time.time;
-
+        sceneManager = FindObjectOfType<Scene_Manager>();
     }
 
     // Update is called once per frame
@@ -268,5 +270,7 @@ public class LevelsManager : MonoBehaviour
     public void EndLevel()
     {
         //call actual endLevelFunction
+        sceneManager.SetCurrentLevelAsCompleted();
+        sceneManager.LoadScene(sceneId.GAME_OVER);
     }
 }
