@@ -4318,6 +4318,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 114242daf6436da4eb0c0c704ca16e8d, type: 2}
     - {fileID: 11400000, guid: 3bc968f6bc426d04caecf530ef87fb72, type: 2}
     - {fileID: 11400000, guid: 088661eb3864fa74aae3474673120ef5, type: 2}
+    - {fileID: 11400000, guid: 15e660076223c094da026d49ecb438ce, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -4464,6 +4465,20 @@ MonoBehaviour:
         - m_Target: {fileID: 88338216}
           m_TargetAssemblyTypeName: LevelsManager, Assembly-CSharp
           m_MethodName: ChangeObstacleColor_Cyan
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 88338216}
+          m_TargetAssemblyTypeName: LevelsManager, Assembly-CSharp
+          m_MethodName: EndLevel
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -40299,7 +40314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1104598936291215120, guid: 667675e2bec91644cbb8e3d488fa3c81, type: 3}
       propertyPath: invincible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1104598936291215124, guid: 667675e2bec91644cbb8e3d488fa3c81, type: 3}
       propertyPath: m_RootOrder
