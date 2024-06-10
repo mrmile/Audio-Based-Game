@@ -34,6 +34,7 @@ public class Stretchers : MonoBehaviour
 
     //public float livingTime = 0;
     public float warningTime = 0;
+    public float waitTime = 0.5f;
     public float obstacleLivingTime = 1;
     public float shakeIntensity_Appear = 0.05f;
     public float shakeIntensity_Expand = 0.1f;
@@ -127,7 +128,7 @@ public class Stretchers : MonoBehaviour
             obstacleSquare_2.transform.localScale = new Vector3(easings_.EaseElasticOut(obstacleTime, 0, 0.5f - 0, 0.15f), easings_.EaseElasticOut(obstacleTime, 0, 0.5f - 0, 0.15f), 0);
             obstacleStretchingBar.transform.localScale = new Vector3(easings_.EaseElasticOut(obstacleTime, 0, 0.15f - 0, 0.15f), easings_.EaseElasticOut(obstacleTime, 0, 0.75f - 0, 0.15f), 0);
         }
-        else if(step == 1 && obstacleTime > 0.5f)
+        else if(step == 1 && obstacleTime > waitTime)
         {
             obstacleWarning.transform.localScale = new Vector3(0, 0, 0);
             obstacleWarning.gameObject.SetActive(false);
