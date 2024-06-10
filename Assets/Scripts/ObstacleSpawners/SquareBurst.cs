@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+
 
 public class SquareBurst : MonoBehaviour
 {
@@ -8,14 +10,22 @@ public class SquareBurst : MonoBehaviour
     LevelsManager level_;
     R_Easings easings_;
 
-    [SerializeField] GameObject bulletPrefab;
+    [Header("Debug")]
+    [SerializeField] float debugLineLength = 1.0f;
+
+    [Header("Spawner Settings")]
     [SerializeField] float angleDirection;
     [SerializeField] float angleOffset;
     [SerializeField] Vector2 spawnArea = new Vector2(1,1);
     [SerializeField] int bulletCount;
     [SerializeField] float timeBetweenBullets;
+    [Header("Bullet Settings")]
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Vector2 bulletSize = new Vector2(1,1);
     [SerializeField] float bulletSpeed;
-    [SerializeField] float debugLineLength = 1.0f;
+    [SerializeField] [Tooltip("This will override Bullet Speed and use a random value between the values specified below")] bool randomBulletSpeed;
+    [SerializeField] float minVal;
+    [SerializeField] float maxVal;
 
     float currentTime;
     int currentBulletCount;
@@ -24,9 +34,8 @@ public class SquareBurst : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentTime = 0;
+        currentTime = 0.1f;
     }
-
 
     private void OnDrawGizmos()
     {
@@ -66,6 +75,7 @@ public class SquareBurst : MonoBehaviour
 
             Vector3 spawnPos = transform.position + new Vector3(Random.Range(-xOffset, xOffset), Random.Range(-yOffset, yOffset), 0);
             GameObject bullet = Instantiate(bulletPrefab,spawnPos, Quaternion.identity);
+            bullet.transform.localScale = new Vector3(bulletSize.x, bulletSize.y, 1);
 
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
@@ -78,7 +88,9 @@ public class SquareBurst : MonoBehaviour
             Vector2 dir = Quaternion.AngleAxis(angleDirection, Vector3.forward) * defaultDir;
             Vector2 rotatedDir = Quaternion.AngleAxis(Random.Range(-angleOffset, angleOffset), Vector3.forward) * dir;
 
-            rb.velocity = rotatedDir.normalized * bulletSpeed;
+
+            float bSpeed = (!randomBulletSpeed) ? bulletSpeed : Random.Range(minVal, maxVal);
+            rb.velocity = rotatedDir.normalized * bSpeed;
             
 
             currentBulletCount++;
