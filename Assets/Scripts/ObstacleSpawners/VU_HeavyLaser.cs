@@ -99,7 +99,7 @@ public class VU_HeavyLaser : MonoBehaviour
             obstacleTime = Time.time - startTime;
         }
 
-        if (step == 2 && obstacleTime > livingTime)
+        if (step == 2 && obstacleTime >= livingTime)
         {
             //obstacleWarning.transform.localScale = new Vector3(0, 20, 0);
             step++;
@@ -109,8 +109,8 @@ public class VU_HeavyLaser : MonoBehaviour
 
         if (obstacle.transform.localScale.x > 0 && step == 3)
         {
-            obstacle.transform.localScale = new Vector3(easings_.EaseExpoIn(obstacleTime, width, 0 - width, 0.25f), height, 0);
-            obstacleWarning.transform.localScale = new Vector3(easings_.EaseExpoIn(obstacleTime, width, 0 - width, 0.25f), height, 0);
+            obstacle.transform.localScale = new Vector3(easings_.EaseExpoIn(obstacleTime, width, 0 - width, 0.2f), height, 0);
+            obstacleWarning.transform.localScale = new Vector3(easings_.EaseExpoIn(obstacleTime, width, 0 - width, 0.2f), height, 0);
         }
         else if (step == 3)
         {

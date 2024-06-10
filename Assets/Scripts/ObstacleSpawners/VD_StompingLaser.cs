@@ -112,7 +112,7 @@ public class VD_StompingLaser : MonoBehaviour
             obstacleTime = Time.time - startTime;
         }
 
-        if (step == 3 && obstacleTime > livingTime)
+        if (step == 3 && obstacleTime >= livingTime)
         {
             //obstacleWarning.transform.localScale = new Vector3(0, 20, 0);
             step++;

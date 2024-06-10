@@ -94,7 +94,7 @@ public class H_BeamLaser : MonoBehaviour
             obstacleTime = Time.time - startTime;
         }
 
-        if (step == 2 && obstacleTime > livingTime)
+        if (step == 2 && obstacleTime >= livingTime)
         {
             //obstacleWarning.transform.localScale = new Vector3(0, 20, 0);
             step++;
