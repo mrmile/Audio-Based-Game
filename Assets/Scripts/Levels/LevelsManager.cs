@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UIElements.Experimental;
 
 public class LevelsManager : MonoBehaviour
@@ -66,7 +67,6 @@ public class LevelsManager : MonoBehaviour
         {
             bgColorChanging = false;
         }
-
     }
 
     public void CameraDirectionalShake(Vector2 directionVector, float shakeDuration, float shakeIntensity)
@@ -266,6 +266,8 @@ public class LevelsManager : MonoBehaviour
     public void StartLevel()
     {
         //calls actual function that sets up necessary things for starting level
+        startTime = Time.time;
+        levelTime = Time.time - startTime;
     }
     public void EndLevel()
     {
