@@ -10,12 +10,14 @@ public enum sceneId
     GAME_OVER,
     GAMEPLAY
 }
+
 public enum levelId
 {
     LEVEL01,
     LEVEL02,
     LEVEL03
 }
+
 public class Scene_Manager : MonoBehaviour
 {
 
@@ -76,8 +78,6 @@ public class Scene_Manager : MonoBehaviour
             currentInputTime = inputDelay;
             LoadScene(sceneId.TITLE);
         }
-
-        else Application.Quit();
 
         switch (selectedScene)
         {
