@@ -10,14 +10,12 @@ public enum sceneId
     GAME_OVER,
     GAMEPLAY
 }
-
 public enum levelId
 {
     LEVEL01,
     LEVEL02,
     LEVEL03
 }
-
 public class Scene_Manager : MonoBehaviour
 {
 
@@ -73,11 +71,18 @@ public class Scene_Manager : MonoBehaviour
         }
 
 
-        if (canEnterInput && Input.GetButtonDown("Cancel") && selectedScene != sceneId.TITLE)
+        if (canEnterInput && Input.GetButtonDown("Cancel"))
         {
-            currentInputTime = inputDelay;
-            LoadScene(sceneId.TITLE);
+            if (selectedScene != sceneId.TITLE)
+            {
+                currentInputTime = inputDelay;
+                LoadScene(sceneId.TITLE);
+            }
+            else 
+                Application.Quit();
         }
+
+        
 
         switch (selectedScene)
         {
