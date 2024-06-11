@@ -31,6 +31,9 @@ public class Scene_Manager : MonoBehaviour
     int hiScore02;
     int hiScore03;
 
+    [SerializeField] float inputDelay;
+    float currentInputTime;
+    bool canEnterInput;
 
     private static Scene_Manager _instance;
     public static Scene_Manager Instance { get { return _instance; } }
@@ -56,7 +59,23 @@ public class Scene_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape) && selectedScene != sceneId.TITLE) LoadScene(sceneId.TITLE);
+
+        if (currentInputTime > 0)
+        {
+            currentInputTime -= Time.deltaTime;
+            canEnterInput = false;
+        }
+        else
+        {
+            canEnterInput = true;
+        }
+
+
+        if (canEnterInput && Input.GetButtonDown("Cancel") && selectedScene != sceneId.TITLE)
+        {
+            currentInputTime = inputDelay;
+            LoadScene(sceneId.TITLE);
+        }
 
         else Application.Quit();
 
@@ -64,8 +83,9 @@ public class Scene_Manager : MonoBehaviour
         {
             case sceneId.TITLE:
                 {
-                    if (Input.GetKey(KeyCode.Space) || Input.GetButtonDown("Jump"))
+                    if (canEnterInput && Input.GetButtonDown("Jump"))
                     {
+                        currentInputTime = inputDelay;
                         currentGameplayLevelCompleted = false;
                         LoadScene(sceneId.LEVEL_SELECTION);
                     }
@@ -73,24 +93,28 @@ public class Scene_Manager : MonoBehaviour
                 }
             case sceneId.LEVEL_SELECTION:
                 {
-                    if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || (Input.GetAxisRaw("Horizontal") < -0.9f))
+                    if (canEnterInput && (Input.GetAxisRaw("Horizontal") < -0.9f))
                     {
+                        currentInputTime = inputDelay;
                         ChangeGameplayLevel(false);
                     }
-                    if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || (Input.GetAxisRaw("Horizontal") > 0.9f))
+                    if (canEnterInput && (Input.GetAxisRaw("Horizontal") > 0.9f))
                     {
+                        currentInputTime = inputDelay;
                         ChangeGameplayLevel(true);
                     }
-                    if (Input.GetKey(KeyCode.Space) || Input.GetButtonDown("Jump"))
+                    if (canEnterInput && Input.GetButtonDown("Jump"))
                     {
+                        currentInputTime = inputDelay;
                         LoadGameplayLevel();
                     }
                     break;
                 }
             case sceneId.GAME_OVER:
                 {
-                    if (Input.GetKey(KeyCode.Space) || Input.GetButtonDown("Jump"))
+                    if (canEnterInput && Input.GetButtonDown("Jump"))
                     {
+                        currentInputTime = inputDelay;
                         currentGameplayLevelCompleted = false;
                         LoadGameplayLevel();
                     }
