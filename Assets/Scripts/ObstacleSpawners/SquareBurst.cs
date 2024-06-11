@@ -41,7 +41,7 @@ public class SquareBurst : MonoBehaviour
     {
         Vector2 pos = transform.position;
 
-        Vector2 dir = Quaternion.AngleAxis(angleDirection, Vector3.forward) * defaultDir;
+        Vector2 dir = Quaternion.AngleAxis(angleDirection - +transform.rotation.eulerAngles.z, Vector3.forward) * defaultDir;
 
         Vector2 offset1 = Quaternion.AngleAxis(-angleOffset, Vector3.forward) * dir;
         Vector2 offset2 = Quaternion.AngleAxis(angleOffset, Vector3.forward) * dir;
@@ -85,7 +85,7 @@ public class SquareBurst : MonoBehaviour
                 return;
             }
 
-            Vector2 dir = Quaternion.AngleAxis(angleDirection, Vector3.forward) * defaultDir;
+            Vector2 dir = Quaternion.AngleAxis(angleDirection + transform.rotation.eulerAngles.z, Vector3.forward) * defaultDir;
             Vector2 rotatedDir = Quaternion.AngleAxis(Random.Range(-angleOffset, angleOffset), Vector3.forward) * dir;
 
 
