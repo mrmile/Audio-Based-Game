@@ -751,7 +751,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1569,6 +1569,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8906951749952656225, guid: b1886e73d271dd34a968132776e0a814, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906951749952656225, guid: b1886e73d271dd34a968132776e0a814, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906951749952656225, guid: b1886e73d271dd34a968132776e0a814, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906951749952656225, guid: b1886e73d271dd34a968132776e0a814, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1608,6 +1620,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8906951749952656225, guid: b1886e73d271dd34a968132776e0a814, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1886e73d271dd34a968132776e0a814, type: 3}
 --- !u!4 &1255471146 stripped
@@ -1625,6 +1641,10 @@ PrefabInstance:
     - target: {fileID: 1104598936291215115, guid: 667675e2bec91644cbb8e3d488fa3c81, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1104598936291215120, guid: 667675e2bec91644cbb8e3d488fa3c81, type: 3}
+      propertyPath: invincible
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1104598936291215124, guid: 667675e2bec91644cbb8e3d488fa3c81, type: 3}
       propertyPath: m_RootOrder
@@ -4062,9 +4082,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1185081380}
     m_Modifications:
+    - target: {fileID: 9221988661195727752, guid: 2440f40b95cf68e44ac6634d0e2991e4, type: 3}
+      propertyPath: waitTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221988661195727752, guid: 2440f40b95cf68e44ac6634d0e2991e4, type: 3}
+      propertyPath: maxPosXY.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221988661195727752, guid: 2440f40b95cf68e44ac6634d0e2991e4, type: 3}
+      propertyPath: maxPosXY.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221988661195727752, guid: 2440f40b95cf68e44ac6634d0e2991e4, type: 3}
+      propertyPath: minPosXY.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221988661195727752, guid: 2440f40b95cf68e44ac6634d0e2991e4, type: 3}
+      propertyPath: minPosXY.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9221988661195727754, guid: 2440f40b95cf68e44ac6634d0e2991e4, type: 3}
       propertyPath: m_Name
       value: StretchingBarHorizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221988661195727754, guid: 2440f40b95cf68e44ac6634d0e2991e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9221988661195727755, guid: 2440f40b95cf68e44ac6634d0e2991e4, type: 3}
       propertyPath: m_RootOrder

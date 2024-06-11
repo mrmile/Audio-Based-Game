@@ -199,22 +199,22 @@ public class Stretchers : MonoBehaviour
                 {
                     if (moveToDirection == 1) //left
                     {
-                        obstacleParent.transform.localPosition = new Vector3(easings_.EaseSineIn(obstacleTime, obstacleParent.transform.localPosition.x, -25 - obstacleParent.transform.localPosition.x, moveToDirectionTime), obstacleParent.transform.localPosition.y, 0);
+                        obstacleParent.transform.localPosition = new Vector3(easings_.EaseSineIn(obstacleTime, obstacleParent.transform.localPosition.x, -50 - obstacleParent.transform.localPosition.x, moveToDirectionTime), obstacleParent.transform.localPosition.y, 0);
                     }
                     else if (moveToDirection == 2) //right
                     {
-                        obstacleParent.transform.localPosition = new Vector3(easings_.EaseSineIn(obstacleTime, obstacleParent.transform.localPosition.x, 25 - obstacleParent.transform.localPosition.x, moveToDirectionTime), obstacleParent.transform.localPosition.y, 0);
+                        obstacleParent.transform.localPosition = new Vector3(easings_.EaseSineIn(obstacleTime, obstacleParent.transform.localPosition.x, 50 - obstacleParent.transform.localPosition.x, moveToDirectionTime), obstacleParent.transform.localPosition.y, 0);
                     }
                 }
                 else if (directionIsVertical == true)
                 {
                     if (moveToDirection == 1) //left
                     {
-                        obstacleParent.transform.localPosition = new Vector3(obstacleParent.transform.localPosition.x, easings_.EaseSineIn(obstacleTime, obstacleParent.transform.localPosition.y, -25 - obstacleParent.transform.localPosition.y, moveToDirectionTime), 0);
+                        obstacleParent.transform.localPosition = new Vector3(obstacleParent.transform.localPosition.x, easings_.EaseSineIn(obstacleTime, obstacleParent.transform.localPosition.y, -50 - obstacleParent.transform.localPosition.y, moveToDirectionTime), 0);
                     }
                     else if (moveToDirection == 2) //right
                     {
-                        obstacleParent.transform.localPosition = new Vector3(obstacleParent.transform.localPosition.x, easings_.EaseSineIn(obstacleTime, obstacleParent.transform.localPosition.y, 25 - obstacleParent.transform.localPosition.y, moveToDirectionTime), 0);
+                        obstacleParent.transform.localPosition = new Vector3(obstacleParent.transform.localPosition.x, easings_.EaseSineIn(obstacleTime, obstacleParent.transform.localPosition.y, 50 - obstacleParent.transform.localPosition.y, moveToDirectionTime), 0);
                     }
                 }
             }

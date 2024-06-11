@@ -64,7 +64,7 @@ public class Scene_Manager : MonoBehaviour
         {
             case sceneId.TITLE:
                 {
-                    if (Input.GetKey(KeyCode.Space))
+                    if (Input.GetKey(KeyCode.Space) || Input.GetButtonDown("Jump"))
                     {
                         currentGameplayLevelCompleted = false;
                         LoadScene(sceneId.LEVEL_SELECTION);
@@ -73,15 +73,15 @@ public class Scene_Manager : MonoBehaviour
                 }
             case sceneId.LEVEL_SELECTION:
                 {
-                    if (Input.GetKeyDown(KeyCode.A))
+                    if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || (Input.GetAxisRaw("Horizontal") < -0.9f))
                     {
                         ChangeGameplayLevel(false);
                     }
-                    if (Input.GetKeyDown(KeyCode.D))
+                    if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || (Input.GetAxisRaw("Horizontal") > 0.9f))
                     {
                         ChangeGameplayLevel(true);
                     }
-                    if (Input.GetKey(KeyCode.Space))
+                    if (Input.GetKey(KeyCode.Space) || Input.GetButtonDown("Jump"))
                     {
                         LoadGameplayLevel();
                     }
@@ -89,7 +89,7 @@ public class Scene_Manager : MonoBehaviour
                 }
             case sceneId.GAME_OVER:
                 {
-                    if (Input.GetKey(KeyCode.Space))
+                    if (Input.GetKey(KeyCode.Space) || Input.GetButtonDown("Jump"))
                     {
                         currentGameplayLevelCompleted = false;
                         LoadGameplayLevel();
