@@ -10,17 +10,28 @@ public enum sceneId
     GAME_OVER,
     GAMEPLAY
 }
+
 public enum levelId
 {
     LEVEL01,
     LEVEL02,
     LEVEL03
 }
+
+public enum levelNames
+{
+    Audiofrec__Brain_Stomp,
+    ParagonX9__Chaoz_Impact,
+    Cyron_xMainly__Losing_You___Not_Implemented
+}
+
 public class Scene_Manager : MonoBehaviour
 {
 
     public sceneId selectedScene;
     public levelId selectedLevel;
+    public levelNames songCurrentNames;
+
     int currentSelectedLevel = 0;
     string sceneName;
     bool currentGameplayLevelCompleted;
@@ -71,18 +82,11 @@ public class Scene_Manager : MonoBehaviour
         }
 
 
-        if (canEnterInput && Input.GetButtonDown("Cancel"))
+        if (canEnterInput && Input.GetButtonDown("Cancel") && selectedScene != sceneId.TITLE)
         {
-            if (selectedScene != sceneId.TITLE)
-            {
-                currentInputTime = inputDelay;
-                LoadScene(sceneId.TITLE);
-            }
-            else 
-                Application.Quit();
+            currentInputTime = inputDelay;
+            LoadScene(sceneId.TITLE);
         }
-
-        
 
         switch (selectedScene)
         {
@@ -188,6 +192,8 @@ public class Scene_Manager : MonoBehaviour
         }
 
         selectedLevel = (levelId)currentSelectedLevel;
+        songCurrentNames = (levelNames)currentSelectedLevel;
+
     }
 
     void LoadGameplayLevel()
