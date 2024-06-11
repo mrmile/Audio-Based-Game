@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
+using TMPro;
 public enum sceneId
 {
     TITLE,
@@ -25,6 +26,7 @@ public enum levelNames
     Cyron_xMainly__Losing_You___Not_Implemented
 }
 
+
 public class Scene_Manager : MonoBehaviour
 {
 
@@ -38,13 +40,23 @@ public class Scene_Manager : MonoBehaviour
 
     int score;
 
-    int hiScore01;
-    int hiScore02;
-    int hiScore03;
+    public int hiScore01 = 0;
+    public int hiScore02 = 0;
+    public int hiScore03 = 0;
 
     [SerializeField] float inputDelay;
     float currentInputTime;
     bool canEnterInput;
+
+    public Sprite fullStar;
+    public Sprite emptyStar;
+
+    public Image UIstar1;
+    public Image UIstar2;
+    public Image UIstar3;
+
+    public TextMeshProUGUI scoreText;
+    public GameObject completedLevelText;
 
     private static Scene_Manager _instance;
     public static Scene_Manager Instance { get { return _instance; } }
@@ -82,8 +94,13 @@ public class Scene_Manager : MonoBehaviour
         }
 
 
-        if (canEnterInput && Input.GetButtonDown("Cancel") && selectedScene != sceneId.TITLE)
+        if (canEnterInput && Input.GetButtonDown("Cancel"))
         {
+            if (selectedScene == sceneId.TITLE)
+            {
+                Application.Quit();
+            }
+
             currentInputTime = inputDelay;
             LoadScene(sceneId.TITLE);
         }
@@ -133,6 +150,109 @@ public class Scene_Manager : MonoBehaviour
         }
 
 
+        GameObject star1 = GameObject.Find("star1");
+        if (selectedScene == sceneId.LEVEL_SELECTION && star1 != null)
+        {
+            print(star1);
+
+            UIstar1 = star1.GetComponent<Image>();
+            UIstar2 = GameObject.Find("star2").GetComponent<Image>();
+            UIstar3 = GameObject.Find("star3").GetComponent<Image>();
+            scoreText = GameObject.Find("scoretext").GetComponent<TextMeshProUGUI>();
+            completedLevelText = GameObject.Find("completedText");
+
+            print("completedLevelText " + completedLevelText);
+
+            if (completedLevelText != null)
+            completedLevelText.SetActive(false);
+
+
+            switch (selectedLevel)
+            {
+                case levelId.LEVEL01:
+                    {
+                        if (hiScore01 >= 5)
+                        {
+                            UIstar1.sprite = fullStar;
+                            UIstar2.sprite = fullStar;
+                            UIstar3.sprite = fullStar;
+                        }
+                        else
+                        {
+                            UIstar1.sprite = fullStar;
+                            UIstar2.sprite = fullStar;
+                            UIstar3.sprite = emptyStar;
+                        }
+
+                        if (currentGameplayLevelCompleted)
+                        {
+                            scoreText.text = "You were hit " + (5 - hiScore01) + "times.";
+                             if (completedLevelText != null)
+                            completedLevelText.SetActive(true);
+
+                        }
+                    }
+
+                    break;
+                case levelId.LEVEL02:
+                    {
+                        if (hiScore02 >= 5)
+                        {
+                            UIstar1.sprite = fullStar;
+                            UIstar2.sprite = fullStar;
+                            UIstar3.sprite = fullStar;
+                        }
+                        else
+                        {
+                            UIstar1.sprite = fullStar;
+                            UIstar2.sprite = fullStar;
+                            UIstar3.sprite = emptyStar;
+                        }
+                        if (currentGameplayLevelCompleted)
+                        {
+                            scoreText.text = "You were hit " + (5 - hiScore03) + "times.";
+                             if (completedLevelText != null)
+                                completedLevelText.SetActive(true);
+
+                        }
+                    }
+                    break;
+                case levelId.LEVEL03:
+                    {
+                        if (hiScore03 >= 5)
+                        {
+                            UIstar1.sprite = fullStar;
+                            UIstar2.sprite = fullStar;
+                            UIstar3.sprite = fullStar;
+                        }
+                        else
+                        {
+                            UIstar1.sprite = fullStar;
+                            UIstar2.sprite = fullStar;
+                            UIstar3.sprite = emptyStar;
+                        }
+                        if (currentGameplayLevelCompleted)
+                        {
+                             if (completedLevelText != null)
+                                completedLevelText.SetActive(true);
+                            scoreText.text = "You were hit " + (5 - hiScore03) + "times.";
+
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            if (!currentGameplayLevelCompleted)
+            {
+                UIstar1.sprite = emptyStar;
+                UIstar2.sprite = emptyStar;
+                UIstar3.sprite = emptyStar;
+            }
+            else
+                UIstar1.sprite = emptyStar;
+        }
     }
 
     public void LoadScene(sceneId id)
@@ -149,6 +269,9 @@ public class Scene_Manager : MonoBehaviour
                 {
                     sceneName = "Level_Selection";
                     selectedScene = sceneId.LEVEL_SELECTION;
+
+
+
                     break;
                 }
             case sceneId.GAME_OVER:
@@ -170,6 +293,9 @@ public class Scene_Manager : MonoBehaviour
         }
 
         SceneManager.LoadScene(sceneName);
+
+        
+
     }
 
     void ChangeGameplayLevel(bool right)
@@ -251,6 +377,7 @@ public class Scene_Manager : MonoBehaviour
     public void SetScore(int score)
     {
         this.score = score;
+        CheckHiScore();
     }
     public int GetScore()
     {

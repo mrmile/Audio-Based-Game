@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 6488437723097714726}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -269,8 +269,8 @@ MonoBehaviour:
   invulnerableTime: 2
   knockBackTime: 0.15
   canTakeHits: 0
-  knockBackMinSpeed: 100
-  knockBackMaxSpeed: 100
+  knockBackMinSpeed: 50
+  knockBackMaxSpeed: 50
   flashTimesPerSecond: 40
   currentFlashingTime: 0
 --- !u!114 &1104598936291215127

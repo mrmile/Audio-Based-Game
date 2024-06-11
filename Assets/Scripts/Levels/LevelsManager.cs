@@ -272,6 +272,12 @@ public class LevelsManager : MonoBehaviour
     public void EndLevel()
     {
         //call actual endLevelFunction
+
+        PlayerHealth player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+
+        int sc = 5 - player.currentHits;
+        if (sc < 0) sc = 0;
+        sceneManager.SetScore(sc);
         sceneManager.SetCurrentLevelAsCompleted();
         sceneManager.LoadScene(sceneId.GAME_OVER);
     }
